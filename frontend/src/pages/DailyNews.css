@@ -1,0 +1,611 @@
+/* =========================================================
+   CIVICPULSE AI - DAILY NEWS PAGE
+   ========================================================= */
+
+.daily-news-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px 70px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(245, 166, 35, 0.14),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(245, 166, 35, 0.12),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #f5f8f7 0%,
+      #FFF4D6 50%,
+      #f7faf8 100%
+    );
+
+  color: #D88900;
+}
+
+/* =========================================================
+   BACKGROUND CIRCLES
+   ========================================================= */
+
+.daily-news-page::before {
+  content: "";
+  position: fixed;
+
+  width: 420px;
+  height: 420px;
+
+  top: -180px;
+  left: -180px;
+
+  border-radius: 50%;
+
+  background: rgba(245, 166, 35, 0.12);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.daily-news-page::after {
+  content: "";
+  position: fixed;
+
+  width: 500px;
+  height: 500px;
+
+  bottom: -250px;
+  right: -200px;
+
+  border-radius: 50%;
+
+  background: rgba(245, 166, 35, 0.10);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.daily-news-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+   BACK TO HOME BUTTON
+   ========================================================= */
+
+.news-back-btn {
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #D88900;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  cursor: pointer;
+
+  margin-bottom: 28px;
+
+  padding: 8px 4px;
+
+  transition: 0.2s ease;
+}
+
+.news-back-btn:hover {
+  color: #D88900;
+  transform: translateX(-3px);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.daily-news-header {
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border: 1px solid rgba(245, 166, 35, 0.08);
+
+  border-radius: 20px;
+
+  padding: 32px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+
+  margin-bottom: 18px;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.07);
+
+  backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   NEWS ICON
+   ========================================================= */
+
+.daily-news-icon {
+  flex-shrink: 0;
+
+  width: 72px;
+  height: 72px;
+
+  border-radius: 18px;
+
+  background: #FFF4D6;
+
+  color: #D88900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 31px;
+}
+
+/* =========================================================
+   CIVICPULSE LABEL
+   ========================================================= */
+
+.news-label {
+  color: #D88900;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 4px;
+}
+
+/* =========================================================
+   HEADER TITLE
+   ========================================================= */
+
+.daily-news-header h1 {
+  margin: 6px 0 7px;
+
+  font-size: 34px;
+  line-height: 1.2;
+
+  color: #D88900;
+
+  font-weight: 800;
+}
+
+.daily-news-header p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.news-date {
+  background: #FFF4D6;
+
+  color: #D88900;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 10px 16px;
+
+  border-radius: 9px;
+
+  margin-bottom: 25px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  box-shadow: 0 3px 12px rgba(245, 166, 35, 0.06);
+}
+
+/* =========================================================
+   NEWS GRID
+   ========================================================= */
+
+.news-grid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 24px;
+}
+
+/* =========================================================
+   NEWS CARD
+   ========================================================= */
+
+.news-card {
+  background: #ffffff;
+
+  border-radius: 17px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(245, 166, 35, 0.07);
+
+  box-shadow:
+    0 7px 25px rgba(0, 0, 0, 0.07);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.11);
+}
+
+/* =========================================================
+   NEWS IMAGE
+   ========================================================= */
+
+.news-image {
+  width: 100%;
+  height: 205px;
+
+  object-fit: cover;
+
+  display: block;
+
+  background: #FFF4D6;
+}
+
+/* =========================================================
+   IMAGE PLACEHOLDER
+   ========================================================= */
+
+.news-image-placeholder {
+  width: 100%;
+  height: 205px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #FFF4D6,
+      #FFF4D6
+    );
+
+  color: #D88900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 45px;
+}
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.news-card-content {
+  padding: 21px;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+/* =========================================================
+   SOURCE
+   ========================================================= */
+
+.news-source {
+  color: #7b8490;
+
+  font-size: 12px;
+
+  margin-bottom: 3px;
+}
+
+.news-source strong {
+  color: #D88900;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   NEWS TITLE
+   ========================================================= */
+
+.news-card h2 {
+  font-size: 19px;
+
+  line-height: 1.45;
+
+  margin: 10px 0;
+
+  color: #1f2937;
+
+  font-weight: 750;
+}
+
+/* =========================================================
+   NEWS DESCRIPTION
+   ========================================================= */
+
+.news-card p {
+  color: #6b7280;
+
+  font-size: 14px;
+
+  line-height: 1.65;
+
+  margin: 0 0 14px;
+
+  display: -webkit-box;
+
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   READ ARTICLE BUTTON
+   ========================================================= */
+
+.news-read-btn {
+  margin-top: auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  align-self: flex-start;
+
+  gap: 8px;
+
+  background: #D88900;
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  padding: 10px 15px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.news-read-btn:hover {
+  background: #D88900;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   LOADING / ERROR / EMPTY
+   ========================================================= */
+
+.news-loading,
+.news-error,
+.no-news {
+  width: 100%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  padding: 50px 30px;
+
+  border-radius: 17px;
+
+  text-align: center;
+
+  font-size: 16px;
+
+  color: #F5A623;
+
+  box-shadow:
+    0 7px 25px rgba(0, 0, 0, 0.06);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.news-loading svg,
+.no-news svg {
+  font-size: 32px;
+  color: #D88900;
+}
+
+.news-error {
+  color: #b42318;
+}
+
+.news-error svg {
+  font-size: 32px;
+  color: #b42318;
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+.daily-news-page.dark {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(245, 166, 35, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(245, 166, 35, 0.14),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #111827 0%,
+      #D88900 50%,
+      #111827 100%
+    );
+
+  color: #ffffff;
+}
+
+.daily-news-page.dark .daily-news-header {
+  background: rgba(31, 41, 55, 0.96);
+
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.daily-news-page.dark .daily-news-header h1 {
+  color: #ffffff;
+}
+
+.daily-news-page.dark .daily-news-header p {
+  color: #F5A623;
+}
+
+.daily-news-page.dark .news-card {
+  background: #1f2937;
+
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.daily-news-page.dark .news-card h2 {
+  color: #ffffff;
+}
+
+.daily-news-page.dark .news-card p {
+  color: #F5A623;
+}
+
+.daily-news-page.dark .news-source {
+  color: #9ca3af;
+}
+
+.daily-news-page.dark .news-loading,
+.daily-news-page.dark .news-error,
+.daily-news-page.dark .no-news {
+  background: #1f2937;
+}
+
+.daily-news-page.dark .news-date {
+  background: rgba(245, 166, 35, 0.18);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .daily-news-page {
+    padding: 25px 15px 50px;
+  }
+
+  .daily-news-header {
+    padding: 22px;
+
+    align-items: flex-start;
+
+    gap: 16px;
+  }
+
+  .daily-news-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 14px;
+
+    font-size: 23px;
+  }
+
+  .daily-news-header h1 {
+    font-size: 26px;
+  }
+
+  .daily-news-header p {
+    font-size: 14px;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .news-image,
+  .news-image-placeholder {
+    height: 190px;
+  }
+}
+
+@media (max-width: 480px) {
+  .daily-news-header {
+    flex-direction: column;
+  }
+
+  .daily-news-header h1 {
+    font-size: 24px;
+  }
+
+  .news-card-content {
+    padding: 18px;
+  }
+}

@@ -1,0 +1,909 @@
+/* =========================================================
+   CIVICPULSE GLOBAL THEME
+========================================================= */
+
+:root {
+  --cp-bg: #F7F9FC;
+  --cp-surface: #ffffff;
+  --cp-elevated: #F7F9FC;
+
+  --cp-heading: #172033;
+  --cp-text: #667085;
+  --cp-muted: #667085;
+
+  --cp-border: #E5E7EB;
+
+  --cp-accent: #0B1F3A;
+  --cp-accent-dark: #071426;
+  --cp-accent-soft: #FFF4D6;
+  --cp-amber: #F5A623;
+  --cp-amber-dark: #D88900;
+  --cp-amber-soft: #fff3d8;
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: var(--cp-bg);
+  color: var(--cp-heading);
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+/* =========================================================
+   COMMON PAGE
+========================================================= */
+
+.cp-page {
+  min-height: 100vh;
+  background: var(--cp-bg);
+  color: var(--cp-heading);
+}
+
+/* =========================================================
+   AUTH / LOGIN PAGE
+========================================================= */
+
+.cp-auth-page {
+  min-height: calc(100vh - 76px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px 20px;
+
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #F7F9FC 0%,
+      #edf3fc 50%,
+      #FFF4D6 100%
+    );
+}
+
+/* Decorative circles */
+
+.cp-auth-page::before {
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  border-radius: 50%;
+
+  background: rgba(11, 31, 58, 0.08);
+
+  top: -180px;
+  left: -150px;
+}
+
+.cp-auth-page::after {
+  content: "";
+
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  background: rgba(245, 166, 35, 0.13);
+
+  bottom: -150px;
+  right: -100px;
+}
+
+/* =========================================================
+   AUTH CARD
+========================================================= */
+
+.cp-auth-card {
+  width: min(430px, 100%);
+
+  padding: 40px;
+
+  position: relative;
+  z-index: 2;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid rgba(219, 228, 241, 0.9);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 25px 70px rgba(21, 39, 70, 0.12),
+    0 5px 20px rgba(21, 39, 70, 0.05);
+
+  backdrop-filter: blur(15px);
+}
+
+/* =========================================================
+   AUTH LOGO
+========================================================= */
+
+.cp-auth-logo {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: var(--cp-accent-soft);
+
+  color: var(--cp-accent);
+
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.cp-auth-card h1,
+.cp-auth-card h2 {
+  margin: 0;
+
+  text-align: center;
+
+  color: var(--cp-heading);
+
+  font-weight: 900;
+}
+
+.cp-auth-card h1 {
+  font-size: 30px;
+}
+
+.cp-auth-card h2 {
+  font-size: 26px;
+}
+
+.cp-auth-subtitle {
+  margin: 10px 0 30px;
+
+  text-align: center;
+
+  color: var(--cp-text);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.cp-form-group {
+  margin-bottom: 20px;
+}
+
+.cp-form-group label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--cp-heading);
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.cp-form-group input,
+.cp-form-group select,
+.cp-form-group textarea {
+  width: 100%;
+
+  min-height: 46px;
+
+  padding: 0 14px;
+
+  border: 1px solid var(--cp-border);
+
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: var(--cp-heading);
+
+  font-size: 14px;
+
+  transition: 0.2s ease;
+}
+
+.cp-form-group textarea {
+  padding: 12px 14px;
+  min-height: 110px;
+  resize: vertical;
+}
+
+.cp-form-group input:focus,
+.cp-form-group select:focus,
+.cp-form-group textarea:focus {
+  border-color: var(--cp-accent);
+
+  box-shadow:
+    0 0 0 3px rgba(245, 166, 35, 0.1);
+}
+
+/* =========================================================
+   PRIMARY AUTH BUTTON
+========================================================= */
+
+.cp-auth-button {
+  width: 100%;
+
+  min-height: 48px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: var(--cp-accent);
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.cp-auth-button:hover {
+  background: var(--cp-accent-dark);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(245, 166, 35, 0.2);
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.cp-auth-link {
+  color: var(--cp-accent);
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+.cp-auth-link:hover {
+  color: var(--cp-accent-dark);
+  text-decoration: underline;
+}
+
+.cp-auth-footer {
+  margin-top: 25px;
+
+  text-align: center;
+
+  color: var(--cp-text);
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.cp-error {
+  margin-bottom: 15px;
+
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  background: #fff1f1;
+
+  border: 1px solid #ffd0d0;
+
+  color: #c53030;
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   SUCCESS
+========================================================= */
+
+.cp-success {
+  margin-bottom: 15px;
+
+  padding: 10px 12px;
+
+  border-radius: 8px;
+
+  background: #FFF4D6;
+
+  border: 1px solid #FFF4D6;
+
+  color: #D88900;
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.cp-back-home {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 20px;
+
+  color: var(--cp-text);
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+.cp-back-home:hover {
+  color: var(--cp-accent);
+}
+
+/* =========================================================
+   DASHBOARD COMMON
+========================================================= */
+
+.cp-dashboard-page {
+  min-height: 100vh;
+
+  background: var(--cp-bg);
+
+  color: var(--cp-heading);
+}
+
+.cp-dashboard-card {
+  background: var(--cp-surface);
+
+  border: 1px solid var(--cp-border);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 7px 25px rgba(15, 23, 42, 0.04);
+}
+
+.cp-dashboard-title {
+  color: var(--cp-heading);
+
+  font-size: 28px;
+
+  font-weight: 900;
+}
+
+.cp-dashboard-text {
+  color: var(--cp-text);
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   GREEN BADGE
+========================================================= */
+
+.cp-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 7px 12px;
+
+  border-radius: 30px;
+
+  background: var(--cp-accent-soft);
+
+  color: var(--cp-accent);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .cp-auth-page {
+    padding: 30px 15px;
+  }
+
+  .cp-auth-card {
+    padding: 28px 22px;
+
+    border-radius: 20px;
+  }
+
+  .cp-auth-card h1 {
+    font-size: 26px;
+  }
+
+  .cp-auth-card h2 {
+    font-size: 23px;
+  }
+
+}
+/* =========================================================
+   CIVICPULSE AUTH / LOGIN PAGE
+========================================================= */
+
+.cp-auth-page {
+  min-height: calc(100vh - 76px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f7faf9 0%,
+      #FFF4D6 50%,
+      #FFF4D6 100%
+    );
+
+  color: #D88900;
+}
+
+
+/* =========================================================
+   LOGIN CARD
+========================================================= */
+
+.cp-auth-card {
+  width: min(520px, 100%);
+  padding: 42px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border: 1px solid #FFF4D6;
+  border-radius: 24px;
+
+  box-shadow:
+    0 25px 70px rgba(245, 166, 35, 0.12);
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   LOGIN ICON
+========================================================= */
+
+.cp-auth-logo {
+  width: 72px;
+  height: 72px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background: #FFF4D6;
+  color: #D88900;
+
+  font-size: 30px;
+
+  box-shadow:
+    0 10px 25px rgba(245, 166, 35, 0.12);
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.cp-auth-card h1 {
+  margin: 0 0 12px;
+
+  color: #D88900;
+
+  font-size: 30px;
+  font-weight: 900;
+
+  letter-spacing: -0.8px;
+}
+
+.cp-auth-subtitle {
+  margin: 0 auto 30px;
+
+  max-width: 400px;
+
+  color: #F5A623;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   LOGIN OPTIONS
+========================================================= */
+
+.cp-login-options {
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   LOGIN OPTION BUTTON
+========================================================= */
+
+.cp-login-option {
+  width: 100%;
+  min-height: 78px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 15px 18px;
+
+  box-sizing: border-box;
+
+  text-decoration: none;
+
+  background: #ffffff;
+
+  border: 1px solid #FFF4D6;
+  border-radius: 15px;
+
+  color: #D88900;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* Hover */
+
+.cp-login-option:hover {
+  transform: translateY(-3px);
+
+  background: #f8fcfa;
+
+  border-color: #FFF4D6;
+
+  box-shadow:
+    0 12px 30px rgba(245, 166, 35, 0.10);
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   OPTION ICON
+========================================================= */
+
+.cp-login-option-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #FFF4D6;
+
+  color: #D88900;
+
+  font-size: 20px;
+
+  transition: 0.25s ease;
+}
+
+.cp-login-option:hover .cp-login-option-icon {
+  background: #D88900;
+  color: white;
+}
+
+
+/* =========================================================
+   OPTION CONTENT
+========================================================= */
+
+.cp-login-option-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.cp-login-option-content strong {
+  color: #D88900;
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.cp-login-option-content span {
+  color: #F5A623;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.cp-login-option-arrow {
+  color: #D88900;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  transition: 0.25s ease;
+}
+
+.cp-login-option:hover .cp-login-option-arrow {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.cp-auth-footer {
+  margin-top: 28px;
+
+  color: #F5A623;
+
+  font-size: 13px;
+
+  line-height: 2;
+}
+
+.cp-auth-link {
+  color: #D88900;
+
+  font-weight: 800;
+
+  text-decoration: none;
+}
+
+.cp-auth-link:hover {
+  color: #D88900;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   BACK TO HOME
+========================================================= */
+
+.cp-back-home {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: 12px;
+
+  color: #F5A623;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+.cp-back-home:hover {
+  color: #D88900;
+
+  text-decoration: none;
+
+  transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark-theme .cp-auth-page {
+  background:
+    linear-gradient(
+      135deg,
+      #D88900 0%,
+      #D88900 50%,
+      #D88900 100%
+    );
+
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-auth-card {
+  background: rgba(245, 166, 35, 0.97);
+
+  border-color: #D88900;
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35);
+}
+
+.dark-theme .cp-auth-card h1 {
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-auth-subtitle {
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-login-option {
+  background: #D88900;
+
+  border-color: #D88900;
+
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-login-option:hover {
+  background: #D88900;
+
+  border-color: #D88900;
+}
+
+.dark-theme .cp-login-option-content strong {
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-login-option-content span {
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-auth-footer {
+  color: #F5A623;
+}
+
+.dark-theme .cp-back-home {
+  color: #FFF4D6;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .cp-auth-page {
+    min-height: calc(100vh - 60px);
+
+    padding: 35px 15px;
+  }
+
+  .cp-auth-card {
+    padding: 30px 20px;
+
+    border-radius: 20px;
+  }
+
+  .cp-auth-card h1 {
+    font-size: 25px;
+  }
+
+  .cp-auth-subtitle {
+    font-size: 13px;
+  }
+
+  .cp-login-option {
+    min-height: 72px;
+
+    padding: 12px;
+  }
+
+  .cp-login-option-icon {
+    width: 43px;
+    height: 43px;
+
+    font-size: 18px;
+  }
+
+  .cp-login-option-content strong {
+    font-size: 14px;
+  }
+
+  .cp-login-option-content span {
+    font-size: 11px;
+  }
+
+  .cp-login-option-arrow {
+    font-size: 20px;
+  }
+}

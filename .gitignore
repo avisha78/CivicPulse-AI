@@ -1,0 +1,29 @@
+# Node dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Build files
+build/
+dist/
+
+# Logs
+*.log
+npm-debug.log*
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Uploaded complaint files
+backend/uploads/

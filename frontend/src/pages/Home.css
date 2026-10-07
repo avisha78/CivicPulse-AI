@@ -1,0 +1,2456 @@
+/* =========================================================
+   CIVICPULSE HOME
+========================================================= */
+
+.cp-home-page {
+  --cp-bg: #F7F9FC;
+  --cp-surface: #ffffff;
+  --cp-elevated: #F7F9FC;
+  --cp-heading: #172033;
+  --cp-text: #667085;
+  --cp-muted: #667085;
+  --cp-border: #E5E7EB;
+  --cp-accent: #0B1F3A;
+  --cp-accent-dark: #071426;
+  --cp-accent-soft: #FFF4D6;
+
+  min-height: 100vh;
+  background: var(--cp-bg);
+  color: var(--cp-heading);
+  overflow-x: hidden;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.cp-navbar {
+  height: 76px;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid rgba(245, 166, 35, 0.8);
+
+  position: sticky;
+  top: 0;
+
+  z-index: 1000;
+}
+
+.cp-navbar-inner {
+  max-width: 1400px;
+
+  height: 100%;
+
+  margin: auto;
+
+  padding: 0 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.cp-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  text-decoration: none;
+
+  color: inherit;
+
+  flex-shrink: 0;
+}
+
+.cp-brand-icon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.cp-brand-icon img {
+  width: 45px;
+  height: 45px;
+
+  object-fit: contain;
+}
+
+.cp-brand-text {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.cp-brand-text strong {
+  font-size: 17px;
+
+  font-weight: 800;
+
+  color: #D88900;
+
+  line-height: 1.1;
+}
+
+.cp-brand-text span {
+  font-size: 9px;
+
+  color: var(--cp-accent);
+
+  font-weight: 700;
+
+  margin-top: 3px;
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.cp-nav-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+
+  margin-left: auto;
+}
+
+.cp-nav-links button,
+.cp-nav-links a {
+  border: none;
+
+  background: transparent;
+
+  color: #F5A623;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+.cp-nav-links button:hover,
+.cp-nav-links a:hover {
+  color: var(--cp-accent);
+}
+
+
+/* =========================================================
+   NAV ACTIONS
+========================================================= */
+
+.cp-nav-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.cp-theme-button {
+  width: 35px;
+  height: 35px;
+
+  border-radius: 9px;
+
+  border: 1px solid var(--cp-border);
+
+  background: white;
+
+  cursor: pointer;
+}
+
+.cp-nav-actions select {
+  height: 35px;
+
+  border: 1px solid var(--cp-border);
+
+  border-radius: 8px;
+
+  padding: 0 7px;
+
+  background: white;
+
+  color: #F5A623;
+
+  font-size: 12px;
+}
+
+.cp-login-btn,
+.cp-register-btn {
+  text-decoration: none;
+
+  padding: 9px 15px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+.cp-login-btn {
+  color: var(--cp-accent);
+
+  border: 1px solid var(--cp-accent);
+
+  background: white;
+}
+
+.cp-login-btn:hover {
+  background: var(--cp-accent-soft);
+}
+
+.cp-register-btn {
+  color: white;
+
+  background: var(--cp-accent);
+
+  border: 1px solid var(--cp-accent);
+}
+
+.cp-register-btn:hover {
+  background: var(--cp-accent-dark);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.cp-hero {
+  min-height: 780px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   HERO BACKGROUND
+   IMAGE: src/assets/hero-bg.jpg
+========================================================= */
+
+.cp-hero-bg {
+  position: absolute;
+  inset: 0;
+
+  background-image: url("../assets/hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transform: scale(1.02);
+
+  /* MUCH MORE VISIBLE */
+  opacity: 1;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   HERO OVERLAY
+========================================================= */
+
+.cp-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.48) 35%,
+    rgba(255, 255, 255, 0.20) 65%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   HERO CONTAINER
+========================================================= */
+
+.cp-hero-container {
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: auto;
+
+  padding: 90px 50px;
+
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: 7fr 5fr;
+
+  gap: 40px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.cp-hero-content {
+  max-width: 850px;
+
+  position: relative;
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   HERO BADGE
+========================================================= */
+
+.cp-hero-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 12px;
+
+  border-radius: 30px;
+
+  background: rgba(11, 31, 58, 0.08);
+
+  border: 1px solid rgba(11, 31, 58, 0.18);
+
+  color: var(--cp-accent);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  margin-bottom: 22px;
+}
+
+.cp-hero-badge span {
+  width: 7px;
+  height: 7px;
+
+  background: #F5A623;
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   HERO HEADING
+========================================================= */
+
+.cp-hero-content h1 {
+  font-size: clamp(3.5rem, 6vw, 6.2rem);
+
+  line-height: 0.96;
+
+  font-weight: 900;
+
+  letter-spacing: -0.055em;
+
+  margin: 28px 0 32px;
+
+  max-width: 850px;
+
+  color: #111827;
+}
+
+.cp-hero-content h1 span {
+  color: #0B1F3A;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.cp-hero-content > p {
+  max-width: 850px;
+
+  font-size: 1.35rem;
+
+  line-height: 1.7;
+
+  color: #334e68;
+
+  margin-bottom: 32px;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.cp-hero-buttons {
+  display: flex;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+
+  margin-top: 32px;
+}
+
+.cp-primary-btn,
+.cp-secondary-btn {
+  min-height: 52px;
+
+  padding: 0 23px;
+
+  border-radius: 11px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  transition: 0.25s ease;
+}
+
+.cp-primary-btn {
+  border: none;
+
+  color: white;
+
+  background: var(--cp-accent);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cp-primary-btn:hover {
+  background: #071426;
+
+  transform: translateY(-2px);
+}
+
+.cp-secondary-btn {
+  color: var(--cp-accent);
+
+  background: rgba(255, 255, 255, 0.75);
+
+  border: 1px solid rgba(11, 31, 58, 0.35);
+
+  backdrop-filter: blur(8px);
+}
+
+.cp-secondary-btn:hover {
+  background: white;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO MINI STATS
+========================================================= */
+
+.cp-hero-mini-stats {
+  display: flex;
+
+  gap: 35px;
+
+  margin-top: 42px;
+}
+
+.cp-hero-mini-stats div {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.cp-hero-mini-stats strong {
+  color: #D88900;
+
+  font-size: 22px;
+
+  font-weight: 900;
+}
+
+.cp-hero-mini-stats span {
+  color: #F5A623;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  margin-top: 3px;
+}
+
+
+/* =========================================================
+   FLOATING HERO CARDS
+========================================================= */
+
+.cp-hero-cards {
+  position: relative;
+
+  height: 470px;
+
+  z-index: 3;
+}
+
+.cp-floating-card {
+  position: absolute;
+
+  width: 245px;
+
+  padding: 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+
+  backdrop-filter: blur(12px);
+
+  animation: floatCard 5s ease-in-out infinite;
+}
+
+.cp-card-one {
+  top: 15px;
+
+  left: 0;
+}
+
+.cp-card-two {
+  top: 50%;
+
+  right: -10px;
+
+  animation-delay: 1.2s;
+}
+
+.cp-card-three {
+  bottom: 15px;
+
+  left: 45px;
+
+  animation-delay: 2.2s;
+}
+
+.cp-card-icon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: var(--cp-accent-soft);
+
+  color: var(--cp-accent);
+}
+
+.cp-card-icon.success {
+  color: #D88900;
+
+  background: #FFF4D6;
+}
+
+.cp-floating-card strong {
+  font-size: 13px;
+
+  color: #D88900;
+}
+
+.cp-floating-card p {
+  margin: 3px 0 0;
+
+  color: #F5A623;
+
+  font-size: 11px;
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+/* =========================================================
+   SECTION COMMON
+========================================================= */
+
+.cp-section {
+  padding: 110px 0;
+}
+
+.cp-section-container {
+  width: min(1200px, calc(100% - 50px));
+
+  margin: auto;
+}
+
+.cp-section-heading {
+  max-width: 750px;
+
+  margin: 0 auto 60px;
+
+  text-align: center;
+}
+
+.cp-section-badge {
+  display: inline-block;
+
+  padding: 7px 12px;
+
+  border-radius: 30px;
+
+  background: var(--cp-accent-soft);
+
+  color: var(--cp-accent);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
+.cp-section-heading h2 {
+  margin: 18px 0 14px;
+
+  color: var(--cp-heading);
+
+  font-size: clamp(2rem, 4vw, 3.3rem);
+
+  line-height: 1.1;
+
+  letter-spacing: -1.5px;
+
+  font-weight: 900;
+}
+
+.cp-section-heading p {
+  margin: 0;
+
+  color: var(--cp-text);
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   METRICS
+========================================================= */
+
+.cp-metrics {
+  background: white;
+
+  border-top: 1px solid var(--cp-border);
+
+  border-bottom: 1px solid var(--cp-border);
+
+  padding: 36px 0;
+}
+
+.cp-metrics-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cp-metrics-grid > div {
+  text-align: center;
+
+  border-right: 1px solid var(--cp-border);
+}
+
+.cp-metrics-grid > div:last-child {
+  border-right: none;
+}
+
+.cp-metrics-grid strong {
+  display: block;
+
+  color: var(--cp-accent);
+
+  font-size: 36px;
+
+  font-weight: 900;
+}
+
+.cp-metrics-grid span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--cp-text);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.cp-about {
+  background: var(--cp-bg);
+}
+
+.cp-about-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 80px;
+
+  align-items: center;
+}
+
+.cp-about-text h2 {
+  margin: 20px 0;
+
+  color: var(--cp-heading);
+
+  font-size: clamp(2rem, 4vw, 3.5rem);
+
+  line-height: 1.1;
+
+  font-weight: 900;
+
+  letter-spacing: -1.5px;
+}
+
+.cp-about-text p {
+  color: var(--cp-text);
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.cp-quote {
+  margin-top: 25px;
+
+  padding: 20px;
+
+  border-left: 4px solid var(--cp-accent);
+
+  border-radius: 0 12px 12px 0;
+
+  background: var(--cp-elevated);
+
+  color: var(--cp-heading);
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  font-style: italic;
+}
+
+
+/* =========================================================
+   ABOUT IMAGE
+========================================================= */
+
+.cp-about-image {
+  min-height: 470px;
+
+  border-radius: 30px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background-image: url("../assets/hero-bg.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  box-shadow: 0 25px 60px rgba(245, 166, 35, 0.15);
+}
+
+.cp-about-image::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(245, 166, 35, 0.05),
+      rgba(245, 166, 35, 0.8)
+    );
+}
+
+.cp-about-image-overlay {
+  position: absolute;
+
+  bottom: 35px;
+
+  left: 35px;
+
+  right: 35px;
+
+  z-index: 2;
+
+  padding: 24px;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.93);
+
+  backdrop-filter: blur(10px);
+}
+
+.cp-about-icon {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: var(--cp-accent-soft);
+
+  color: var(--cp-accent);
+
+  margin-bottom: 12px;
+}
+
+.cp-about-image-overlay h3 {
+  margin: 0 0 5px;
+
+  color: var(--cp-heading);
+
+  font-size: 18px;
+}
+
+.cp-about-image-overlay p {
+  margin: 0;
+
+  color: var(--cp-text);
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.cp-features-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+.cp-feature-card {
+  position: relative;
+
+  padding: 30px;
+
+  min-height: 250px;
+
+  border-radius: 22px;
+
+  background: white;
+
+  border: 1px solid var(--cp-border);
+
+  box-shadow: 0 7px 25px rgba(15, 23, 42, 0.04);
+
+  transition: 0.3s ease;
+}
+
+.cp-feature-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.09);
+
+  border-color: #FFF4D6;
+}
+
+.cp-feature-icon {
+  width: 58px;
+  height: 58px;
+
+  border-radius: 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: var(--cp-elevated);
+
+  color: var(--cp-accent);
+
+  margin-bottom: 25px;
+}
+
+.cp-feature-card h3 {
+  margin: 0 0 10px;
+
+  color: var(--cp-heading);
+
+  font-size: 20px;
+}
+
+.cp-feature-card p {
+  margin: 0;
+
+  color: var(--cp-text);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+.cp-card-arrow {
+  position: absolute;
+
+  right: 25px;
+
+  bottom: 23px;
+
+  color: var(--cp-accent);
+
+  opacity: 0;
+
+  transition: 0.3s ease;
+}
+
+.cp-feature-card:hover .cp-card-arrow {
+  opacity: 1;
+
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.cp-workflow-section {
+  background: #FFF4D6;
+}
+
+.cp-workflow {
+  display: flex;
+
+  gap: 18px;
+
+  position: relative;
+}
+
+.cp-workflow-line {
+  position: absolute;
+
+  top: 30px;
+
+  left: 9%;
+
+  right: 9%;
+
+  height: 2px;
+
+  background: #FFF4D6;
+
+  z-index: 0;
+}
+
+.cp-workflow-card {
+  position: relative;
+
+  z-index: 1;
+
+  flex: 1;
+
+  padding: 30px 23px;
+
+  border-radius: 20px;
+
+  background: white;
+
+  border: 1px solid var(--cp-border);
+
+  box-shadow: 0 7px 22px rgba(15, 23, 42, 0.04);
+}
+
+.cp-step-number {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--cp-elevated);
+
+  color: var(--cp-accent);
+
+  border: 2px solid #FFF4D6;
+
+  font-size: 16px;
+
+  font-weight: 900;
+
+  margin-bottom: 22px;
+}
+
+.cp-workflow-card h3 {
+  margin: 0 0 10px;
+
+  color: var(--cp-heading);
+
+  font-size: 19px;
+}
+
+.cp-workflow-card p {
+  margin: 0;
+
+  color: var(--cp-text);
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   STAKEHOLDERS
+========================================================= */
+
+.cp-stakeholder-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.cp-stakeholder-card {
+  padding: 32px 24px;
+
+  text-align: center;
+
+  border-radius: 22px;
+
+  background: white;
+
+  border: 1px solid var(--cp-border);
+
+  transition: 0.3s ease;
+}
+
+.cp-stakeholder-card:hover {
+  transform: translateY(-7px);
+
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.07);
+}
+
+.cp-stakeholder-icon {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 17px;
+
+  color: var(--cp-accent);
+
+  background: var(--cp-accent-soft);
+}
+
+.cp-stakeholder-card h3 {
+  margin: 0 0 10px;
+
+  color: var(--cp-heading);
+
+  font-size: 19px;
+}
+
+.cp-stakeholder-card p {
+  margin: 0;
+
+  color: var(--cp-text);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   CIVIC PROBLEMS
+========================================================= */
+
+.cp-problem-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+.cp-problem-card {
+  min-height: 390px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  border: 1px solid var(--cp-border);
+
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.cp-problem-bg {
+  position: absolute;
+
+  inset: 0;
+
+  background-image: url("../assets/hero-bg.jpg");
+
+  background-size: cover;
+
+  transition: 0.6s ease;
+}
+
+.cp-problem-card:hover .cp-problem-bg {
+  transform: scale(1.08);
+}
+
+.cp-problem-bg.road {
+  background-position: 35% center;
+}
+
+.cp-problem-bg.waste {
+  background-position: 70% center;
+}
+
+.cp-problem-bg.water {
+  background-position: center;
+}
+
+.cp-problem-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(245, 166, 35, 0.92),
+      rgba(245, 166, 35, 0.1)
+    );
+}
+
+.cp-problem-content {
+  position: absolute;
+
+  left: 25px;
+
+  right: 25px;
+
+  bottom: 25px;
+
+  color: white;
+}
+
+.cp-problem-content svg {
+  color: #F5A623;
+
+  margin-bottom: 12px;
+}
+
+.cp-problem-content h3 {
+  margin: 0 0 5px;
+
+  font-size: 21px;
+}
+
+.cp-problem-content p {
+  margin: 0;
+
+  color: #FFF4D6;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.cp-category-section {
+  background: #FFF4D6;
+}
+
+.cp-category-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 15px;
+}
+
+.cp-category-card {
+  min-height: 135px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 13px;
+
+  border-radius: 17px;
+
+  background: white;
+
+  border: 1px solid var(--cp-border);
+
+  transition: 0.25s ease;
+}
+
+.cp-category-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #FFF4D6;
+
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.06);
+}
+
+.cp-category-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: var(--cp-elevated);
+
+  color: var(--cp-accent);
+}
+
+.cp-category-card span {
+  color: var(--cp-heading);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   IMPACT
+========================================================= */
+
+.cp-impact {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 70px 50px;
+
+  border-radius: 35px;
+
+  background: #FFF4D6;
+
+  border: 1px solid #FFF4D6;
+}
+
+.cp-impact .cp-section-heading {
+  position: relative;
+
+  z-index: 2;
+}
+
+.cp-impact-decoration {
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  filter: blur(70px);
+
+  opacity: 0.18;
+
+  pointer-events: none;
+}
+
+.cp-impact-decoration.one {
+  right: -130px;
+
+  top: -130px;
+
+  background: var(--cp-accent);
+}
+
+.cp-impact-decoration.two {
+  left: -130px;
+
+  bottom: -130px;
+
+  background: #F5A623;
+}
+
+.cp-impact-grid {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 40px;
+}
+
+.cp-impact-grid > div {
+  text-align: center;
+}
+
+.cp-impact-icon {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: white;
+
+  color: var(--cp-accent);
+
+  border: 1px solid var(--cp-border);
+
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.cp-impact-grid h3 {
+  margin: 0 0 10px;
+
+  color: var(--cp-heading);
+
+  font-size: 20px;
+}
+
+.cp-impact-grid p {
+  margin: 0;
+
+  color: var(--cp-text);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   TRUST
+========================================================= */
+
+.cp-trust {
+  padding: 70px 0;
+
+  background: white;
+
+  border-top: 1px solid var(--cp-border);
+
+  border-bottom: 1px solid var(--cp-border);
+
+  text-align: center;
+}
+
+.cp-trust > .cp-section-container > span {
+  color: var(--cp-muted);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.cp-trust-items {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 40px;
+
+  margin-top: 30px;
+}
+
+.cp-trust-items div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #F5A623;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.cp-trust-items svg {
+  color: var(--cp-accent);
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.cp-final-cta {
+  position: relative;
+
+  min-height: 500px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  overflow: hidden;
+}
+
+.cp-final-cta-bg {
+  position: absolute;
+
+  inset: 0;
+
+  background-image: url("../assets/hero-bg.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+.cp-final-cta-bg::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(245, 166, 35, 0.82);
+}
+
+.cp-final-cta-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 850px;
+
+  padding: 60px 25px;
+}
+
+.cp-final-cta-content .cp-section-badge {
+  background: rgba(255, 255, 255, 0.13);
+
+  color: #FFF4D6;
+}
+
+.cp-final-cta-content h2 {
+  margin: 22px 0 18px;
+
+  color: white;
+
+  font-size: clamp(2.5rem, 5vw, 4.7rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -2px;
+
+  font-weight: 900;
+}
+
+.cp-final-cta-content p {
+  max-width: 650px;
+
+  margin: auto;
+
+  color: #FFF4D6;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.cp-final-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-top: 35px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.cp-footer {
+  padding: 30px 0;
+
+  background: #D88900;
+
+  color: #FFF4D6;
+}
+
+.cp-footer-inner {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.cp-footer strong {
+  color: white;
+
+  font-size: 18px;
+}
+
+.cp-footer p {
+  margin: 4px 0 0;
+
+  color: #F5A623;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   LOGIN POPUP
+========================================================= */
+
+.cp-popup-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  backdrop-filter: blur(5px);
+}
+
+.cp-login-popup {
+  width: min(410px, 100%);
+
+  padding: 35px;
+
+  text-align: center;
+
+  border-radius: 22px;
+
+  background: white;
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+
+  animation: popupShow 0.25s ease;
+}
+
+@keyframes popupShow {
+  from {
+    opacity: 0;
+
+    transform: scale(0.9) translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: scale(1) translateY(0);
+  }
+}
+
+.cp-popup-icon {
+  width: 65px;
+  height: 65px;
+
+  margin: 0 auto 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: var(--cp-accent-soft);
+
+  font-size: 27px;
+}
+
+.cp-login-popup h3 {
+  margin: 0 0 10px;
+
+  color: var(--cp-heading);
+
+  font-size: 22px;
+}
+
+.cp-login-popup p {
+  margin: 0 0 25px;
+
+  color: var(--cp-text);
+
+  line-height: 1.6;
+}
+
+.cp-popup-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+}
+
+.cp-cancel-btn,
+.cp-popup-login-btn {
+  padding: 10px 22px;
+
+  border-radius: 8px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  border: none;
+}
+
+.cp-cancel-btn {
+  color: #F5A623;
+
+  background: #edf1ef;
+}
+
+.cp-popup-login-btn {
+  color: white;
+
+  background: var(--cp-accent);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.cp-home-page.dark-theme {
+  --cp-bg: #D88900;
+  --cp-surface: #D88900;
+  --cp-elevated: #D88900;
+  --cp-heading: #FFF4D6;
+  --cp-text: #FFF4D6;
+  --cp-muted: #F5A623;
+  --cp-border: #D88900;
+  --cp-accent: #F5A623;
+  --cp-accent-dark: #F5A623;
+  --cp-accent-soft: #D88900;
+}
+
+.dark-theme .cp-navbar {
+  background: rgba(245, 166, 35, 0.96);
+
+  border-color: #D88900;
+}
+
+.dark-theme .cp-brand-text strong {
+  color: white;
+}
+
+.dark-theme .cp-nav-links button,
+.dark-theme .cp-nav-links a {
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-theme-button,
+.dark-theme .cp-nav-actions select {
+  background: #D88900;
+
+  color: #FFF4D6;
+
+  border-color: #D88900;
+}
+
+.dark-theme .cp-login-btn {
+  background: transparent;
+
+  color: #F5A623;
+
+  border-color: #F5A623;
+}
+
+.dark-theme .cp-metrics,
+.dark-theme .cp-trust {
+  background: #D88900;
+
+  border-color: #D88900;
+}
+
+.dark-theme .cp-feature-card,
+.dark-theme .cp-workflow-card,
+.dark-theme .cp-stakeholder-card,
+.dark-theme .cp-category-card {
+  background: #D88900;
+
+  border-color: #D88900;
+}
+
+.dark-theme .cp-workflow-section,
+.dark-theme .cp-category-section {
+  background: #D88900;
+}
+
+.dark-theme .cp-about-image-overlay {
+  background: rgba(245, 166, 35, 0.94);
+}
+
+.dark-theme .cp-about-image-overlay h3 {
+  color: white;
+}
+
+.dark-theme .cp-impact {
+  background: #D88900;
+
+  border-color: #D88900;
+}
+
+.dark-theme .cp-impact-icon {
+  background: #D88900;
+
+  border-color: #D88900;
+}
+
+.dark-theme .cp-login-popup {
+  background: #D88900;
+}
+
+.dark-theme .cp-login-popup h3 {
+  color: white;
+}
+
+
+/* =========================================================
+   DARK MODE HERO
+========================================================= */
+
+.dark-theme .cp-hero-bg {
+  opacity: 0.35;
+}
+
+.dark-theme .cp-hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(245, 166, 35, 0.94) 0%,
+      rgba(245, 166, 35, 0.84) 38%,
+      rgba(245, 166, 35, 0.68) 65%,
+      rgba(245, 166, 35, 0.52) 100%
+    );
+}
+
+.dark-theme .cp-hero-content h1 {
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-hero-content h1 span {
+  color: #F5A623;
+}
+
+.dark-theme .cp-hero-content > p {
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-hero-badge {
+  background: rgba(245, 166, 35, 0.1);
+
+  border-color: rgba(245, 166, 35, 0.25);
+
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-hero-mini-stats strong {
+  color: white;
+}
+
+.dark-theme .cp-hero-mini-stats span {
+  color: #FFF4D6;
+}
+
+.dark-theme .cp-secondary-btn {
+  color: #F5A623;
+
+  background: rgba(245, 166, 35, 0.7);
+
+  border-color: rgba(245, 166, 35, 0.4);
+}
+
+.dark-theme .cp-secondary-btn:hover {
+  background: #D88900;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .cp-nav-links {
+    gap: 15px;
+  }
+
+  .cp-nav-actions {
+    gap: 5px;
+  }
+
+  .cp-hero-container {
+    padding: 70px 35px;
+  }
+
+  .cp-hero-content h1 {
+    font-size: 4rem;
+  }
+
+  .cp-hero-content > p {
+    font-size: 1.15rem;
+  }
+
+  .cp-floating-card {
+    width: 220px;
+  }
+
+  .cp-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cp-stakeholder-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cp-category-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+  .cp-navbar {
+    height: auto;
+
+    padding: 12px 0;
+  }
+
+  .cp-navbar-inner {
+    padding: 0 18px;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+  }
+
+  .cp-nav-links {
+    order: 3;
+
+    width: 100%;
+
+    justify-content: center;
+
+    overflow-x: auto;
+
+    padding-top: 8px;
+
+    border-top: 1px solid var(--cp-border);
+  }
+
+  .cp-nav-links button,
+  .cp-nav-links a {
+    white-space: nowrap;
+
+    font-size: 11px;
+  }
+
+  .cp-nav-actions {
+    margin-left: auto;
+  }
+
+  .cp-register-btn {
+    display: none;
+  }
+
+
+  /* =======================================================
+     MOBILE HERO
+  ======================================================= */
+
+  .cp-hero {
+    min-height: 760px;
+  }
+
+  .cp-hero-bg {
+    background-position: center;
+
+    opacity: 0.22;
+  }
+
+  .cp-hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(255, 255, 255, 0.82) 50%,
+        rgba(255, 255, 255, 0.68) 100%
+      );
+  }
+
+  .cp-hero-container {
+    padding: 70px 22px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .cp-hero-content {
+    text-align: center;
+  }
+
+  .cp-hero-badge {
+    font-size: 8px;
+  }
+
+  .cp-hero-content h1 {
+    font-size: 3rem;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+
+    color: #111827;
+  }
+
+  .cp-hero-content h1 span {
+    color: #F5A623;
+  }
+
+  .cp-hero-content > p {
+    font-size: 14px;
+
+    color: #334e68;
+
+    margin-left: auto;
+
+    margin-right: auto;
+  }
+
+  .cp-hero-buttons {
+    justify-content: center;
+  }
+
+  .cp-primary-btn,
+  .cp-secondary-btn {
+    min-height: 48px;
+
+    padding: 0 17px;
+
+    font-size: 12px;
+  }
+
+  .cp-hero-mini-stats {
+    justify-content: center;
+
+    gap: 20px;
+  }
+
+  .cp-hero-mini-stats strong {
+    font-size: 17px;
+
+    color: #D88900;
+  }
+
+  .cp-hero-mini-stats span {
+    font-size: 8px;
+
+    color: #F5A623;
+  }
+
+
+  /* =======================================================
+     MOBILE FLOATING CARDS
+  ======================================================= */
+
+  .cp-hero-cards {
+    height: 220px;
+
+    width: 100%;
+
+    margin-top: 20px;
+  }
+
+  .cp-floating-card {
+    width: 190px;
+
+    padding: 12px;
+  }
+
+  .cp-card-one {
+    top: 0;
+
+    left: 0;
+  }
+
+  .cp-card-two {
+    top: 70px;
+
+    right: 0;
+  }
+
+  .cp-card-three {
+    bottom: 0;
+
+    left: 20px;
+  }
+
+
+  /* =======================================================
+     METRICS
+  ======================================================= */
+
+  .cp-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+  }
+
+  .cp-metrics-grid > div {
+    border-right: none;
+  }
+
+  .cp-metrics-grid strong {
+    font-size: 27px;
+  }
+
+
+  /* =======================================================
+     COMMON
+  ======================================================= */
+
+  .cp-section {
+    padding: 75px 0;
+  }
+
+  .cp-section-container {
+    width: min(100% - 32px, 1200px);
+  }
+
+  .cp-section-heading {
+    margin-bottom: 40px;
+  }
+
+  .cp-section-heading h2 {
+    font-size: 2.2rem;
+  }
+
+
+  /* =======================================================
+     ABOUT
+  ======================================================= */
+
+  .cp-about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .cp-about-text h2 {
+    font-size: 2.3rem;
+  }
+
+  .cp-about-image {
+    min-height: 350px;
+  }
+
+
+  /* =======================================================
+     FEATURES
+  ======================================================= */
+
+  .cp-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* =======================================================
+     WORKFLOW
+  ======================================================= */
+
+  .cp-workflow {
+    flex-direction: column;
+  }
+
+  .cp-workflow-line {
+    display: none;
+  }
+
+
+  /* =======================================================
+     STAKEHOLDERS
+  ======================================================= */
+
+  .cp-stakeholder-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* =======================================================
+     PROBLEMS
+  ======================================================= */
+
+  .cp-problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cp-problem-card {
+    min-height: 300px;
+  }
+
+
+  /* =======================================================
+     CATEGORIES
+  ======================================================= */
+
+  .cp-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* =======================================================
+     IMPACT
+  ======================================================= */
+
+  .cp-impact {
+    padding: 50px 22px;
+
+    border-radius: 25px;
+  }
+
+  .cp-impact-grid {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+
+  /* =======================================================
+     TRUST
+  ======================================================= */
+
+  .cp-trust-items {
+    gap: 20px;
+
+    flex-direction: column;
+  }
+
+
+  /* =======================================================
+     CTA
+  ======================================================= */
+
+  .cp-final-cta-content h2 {
+    font-size: 2.7rem;
+  }
+
+  .cp-final-cta-content p {
+    font-size: 14px;
+  }
+
+
+  /* =======================================================
+     FOOTER
+  ======================================================= */
+
+  .cp-footer-inner {
+    flex-direction: column;
+
+    text-align: center;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+  .cp-brand-text strong {
+    font-size: 15px;
+  }
+
+  .cp-brand-text span {
+    font-size: 8px;
+  }
+
+  .cp-nav-actions select {
+    display: none;
+  }
+
+  .cp-login-btn {
+    padding: 8px 11px;
+
+    font-size: 10px;
+  }
+
+
+  /* =======================================================
+     SMALL MOBILE HERO
+  ======================================================= */
+
+  .cp-hero {
+    min-height: 750px;
+  }
+
+  .cp-hero-container {
+    padding-top: 55px;
+  }
+
+  .cp-hero-content h1 {
+    font-size: 2.55rem;
+
+    line-height: 1;
+
+    letter-spacing: -1.5px;
+
+    color: #111827;
+  }
+
+  .cp-hero-content h1 span {
+    color: #F5A623;
+  }
+
+  .cp-hero-content > p {
+    font-size: 13px;
+
+    color: #334e68;
+  }
+
+  .cp-hero-mini-stats {
+    gap: 12px;
+  }
+
+  .cp-hero-mini-stats strong {
+    font-size: 15px;
+
+    color: #D88900;
+  }
+
+  .cp-hero-mini-stats span {
+    color: #F5A623;
+  }
+
+  .cp-floating-card {
+    width: 175px;
+
+    font-size: 10px;
+  }
+
+  .cp-card-two {
+    right: -5px;
+  }
+
+
+  /* =======================================================
+     OTHER SMALL MOBILE SECTIONS
+  ======================================================= */
+
+  .cp-about-text h2 {
+    font-size: 2rem;
+  }
+
+  .cp-section-heading h2 {
+    font-size: 1.9rem;
+  }
+
+  .cp-stakeholder-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cp-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cp-final-cta-content h2 {
+    font-size: 2.3rem;
+  }
+
+  .cp-popup-buttons {
+    flex-direction: column;
+  }
+
+  .cp-cancel-btn,
+  .cp-popup-login-btn {
+    width: 100%;
+  }
+}

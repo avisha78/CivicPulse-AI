@@ -1,0 +1,1146 @@
+
+/* =========================================================
+   CIVICPULSE AI - OFFICER DASHBOARD
+  Royal Blue / Warm Amber Professional Theme
+========================================================= */
+
+.cp-officer-dashboard {
+  min-height: 100vh;
+  display: flex;
+  background: #F7F9FC;
+  color: #172033;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.cp-officer-sidebar {
+  width: 270px;
+  min-height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #E5E7EB;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 18px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.cp-officer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 10px 28px;
+  border-bottom: 1px solid #FFF4D6;
+}
+
+.cp-officer-brand-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #FFF4D6;
+  color: #D88900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.cp-officer-brand-text h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 750;
+  color: #D88900;
+}
+
+.cp-officer-brand-text span {
+  font-size: 12px;
+  color: #F5A623;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.cp-officer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 28px;
+}
+
+.cp-officer-nav-item {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 13px 15px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #F5A623;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s ease;
+}
+
+.cp-officer-nav-item svg {
+  width: 17px;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cp-officer-nav-item:hover {
+  background: #FFF4D6;
+  color: #D88900;
+  transform: translateX(3px);
+}
+
+.cp-officer-nav-item.active {
+  background: #D88900;
+  color: #ffffff;
+  box-shadow: 0 7px 18px rgba(245, 166, 35, 0.2);
+}
+
+/* =========================================================
+   SIDEBAR PROFILE
+========================================================= */
+
+.cp-officer-sidebar-profile {
+  margin-top: auto;
+  padding: 15px;
+  border: 1px solid #FFF4D6;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: #f8fbf9;
+}
+
+.cp-officer-profile-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  background: #FFF4D6;
+  color: #D88900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cp-officer-profile-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cp-officer-profile-info strong {
+  font-size: 13px;
+  color: #D88900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cp-officer-profile-info span {
+  font-size: 11px;
+  color: #F5A623;
+  margin-top: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+.cp-officer-logout {
+  margin-top: 12px;
+  border: 1px solid #f1d7d7;
+  background: #fff7f7;
+  color: #d63c3c;
+  padding: 12px 15px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.cp-officer-logout:hover {
+  background: #d63c3c;
+  color: #ffffff;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.cp-officer-main {
+  width: calc(100% - 270px);
+  margin-left: 270px;
+  padding: 35px 42px 30px;
+  min-width: 0;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.cp-officer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 28px;
+}
+
+.cp-officer-header-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  color: #D88900;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+}
+
+.cp-officer-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 750;
+  color: #D88900;
+}
+
+.cp-officer-header p {
+  margin: 6px 0 0;
+  color: #F5A623;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cp-officer-header-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #FFF4D6;
+  padding: 10px 16px;
+  border-radius: 13px;
+  flex-shrink: 0;
+}
+
+.cp-officer-header-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #FFF4D6;
+  color: #D88900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cp-officer-header-user > div:last-child {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cp-officer-header-user strong {
+  font-size: 13px;
+  color: #D88900;
+}
+
+.cp-officer-header-user span {
+  font-size: 11px;
+  color: #F5A623;
+  margin-top: 3px;
+}
+
+/* =========================================================
+   WELCOME BANNER
+========================================================= */
+
+.cp-officer-welcome {
+  min-height: 180px;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    #D88900 0%,
+    #D88900 55%,
+    #F5A623 100%
+  );
+  padding: 32px 35px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.cp-officer-welcome::after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  right: 70px;
+  top: -120px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cp-officer-welcome-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.cp-officer-welcome-content span {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  opacity: 0.8;
+}
+
+.cp-officer-welcome-content h2 {
+  margin: 8px 0 8px;
+  font-size: 27px;
+  font-weight: 750;
+}
+
+.cp-officer-welcome-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.cp-officer-welcome-icon {
+  position: relative;
+  z-index: 2;
+  font-size: 100px;
+  opacity: 0.13;
+  margin-right: 30px;
+}
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+.cp-officer-stat-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.cp-officer-stat-card {
+  background: #ffffff;
+  border: 1px solid #FFF4D6;
+  border-radius: 15px;
+  padding: 21px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.25s ease;
+  min-width: 0;
+}
+
+.cp-officer-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(245, 166, 35, 0.08);
+}
+
+.cp-officer-stat-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+}
+
+.cp-officer-stat-icon.blue,
+.cp-officer-function-icon.blue {
+  background: #F7F9FC;
+  color: #0B1F3A;
+}
+
+.cp-officer-stat-icon.orange,
+.cp-officer-function-icon.orange {
+  background: #fff4df;
+  color: #F5A623;
+}
+
+.cp-officer-stat-icon.amber,
+.cp-officer-function-icon.amber {
+  background: #FFF4D6;
+  color: #D88900;
+}
+
+.cp-officer-stat-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cp-officer-stat-content span {
+  color: #F5A623;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cp-officer-stat-content strong {
+  color: #D88900;
+  font-size: 29px;
+  line-height: 1.2;
+  margin-top: 3px;
+}
+
+.cp-officer-stat-content small {
+  color: #F5A623;
+  font-size: 10px;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.cp-officer-functions {
+  margin-bottom: 30px;
+}
+
+.cp-officer-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.cp-officer-section-heading > div {
+  min-width: 0;
+}
+
+.cp-officer-section-heading > div span,
+.cp-officer-recent-header > div > span {
+  color: #D88900;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.cp-officer-section-heading h2,
+.cp-officer-recent-header h2 {
+  margin: 4px 0;
+  font-size: 22px;
+  color: #D88900;
+}
+
+.cp-officer-section-heading p,
+.cp-officer-recent-header p {
+  margin: 0;
+  color: #F5A623;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cp-officer-section-heading > svg {
+  color: #FFF4D6;
+  font-size: 42px;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   FUNCTION CARDS
+========================================================= */
+
+.cp-officer-function-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.cp-officer-function-card {
+  min-height: 165px;
+  position: relative;
+  border: 1px solid #FFF4D6;
+  border-radius: 15px;
+  background: #ffffff;
+  padding: 23px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.cp-officer-function-card:hover {
+  transform: translateY(-4px);
+  border-color: #FFF4D6;
+  box-shadow: 0 12px 30px rgba(245, 166, 35, 0.09);
+}
+
+.cp-officer-function-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.cp-officer-function-content {
+  min-width: 0;
+}
+
+.cp-officer-function-content h3 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: #D88900;
+}
+
+.cp-officer-function-content p {
+  margin: 0;
+  color: #F5A623;
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 270px;
+}
+
+.cp-officer-function-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 22px;
+  color: #F5A623;
+  font-size: 13px;
+  transition: transform 0.2s ease;
+}
+
+.cp-officer-function-card:hover .cp-officer-function-arrow {
+  transform: translateX(4px);
+  color: #D88900;
+}
+
+/* =========================================================
+   RECENT COMPLAINTS
+========================================================= */
+
+.cp-officer-recent {
+  background: #ffffff;
+  border: 1px solid #FFF4D6;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.cp-officer-recent-header {
+  padding: 22px 25px;
+  border-bottom: 1px solid #FFF4D6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cp-officer-view-all {
+  border: none;
+  background: #FFF4D6;
+  color: #D88900;
+  border-radius: 9px;
+  padding: 9px 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cp-officer-view-all:hover {
+  background: #D88900;
+  color: #ffffff;
+}
+
+/* =========================================================
+   CONTENT SECTION
+========================================================= */
+
+.cp-officer-content-section {
+  background: #ffffff;
+  border: 1px solid #FFF4D6;
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(245, 166, 35, 0.035);
+}
+
+.cp-officer-content-section .cp-officer-section-heading {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #FFF4D6;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.cp-officer-empty {
+  padding: 48px 20px;
+  text-align: center;
+}
+
+.cp-officer-empty-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #FFF4D6;
+  color: #F5A623;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+}
+
+.cp-officer-empty h3 {
+  margin: 0 0 7px;
+  font-size: 16px;
+  color: #D88900;
+}
+
+.cp-officer-empty p {
+  max-width: 500px;
+  margin: 0 auto 18px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #F5A623;
+}
+
+.cp-officer-empty-button {
+  border: none;
+  background: #D88900;
+  color: #ffffff;
+  padding: 10px 17px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  transition: all 0.2s ease;
+}
+
+.cp-officer-empty-button:hover {
+  background: #D88900;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   PRIORITY + LOCATION INFORMATION
+========================================================= */
+
+.cp-officer-complaint-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 18px auto 22px;
+}
+
+.cp-officer-complaint-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border-radius: 9px;
+  background: #f7faf8;
+  border: 1px solid #FFF4D6;
+  color: #F5A623;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.cp-officer-complaint-meta span:first-child svg {
+  color: #F5A623;
+}
+
+.cp-officer-complaint-meta span:last-child svg {
+  color: #0B1F3A;
+}
+
+/* =========================================================
+   HELP & SUPPORT
+========================================================= */
+
+.cp-officer-help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.cp-officer-help-card {
+  background: #ffffff;
+  border: 1px solid #FFF4D6;
+  border-radius: 16px;
+  padding: 25px;
+  min-height: 205px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.cp-officer-help-card::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  right: -35px;
+  top: -35px;
+  background: #FFF4D6;
+  opacity: 0.8;
+}
+
+.cp-officer-help-card:hover {
+  transform: translateY(-5px);
+  border-color: #FFF4D6;
+  box-shadow: 0 12px 30px rgba(245, 166, 35, 0.1);
+}
+
+.cp-officer-help-card > svg {
+  width: 48px;
+  height: 48px;
+  padding: 13px;
+  border-radius: 13px;
+  background: #FFF4D6;
+  color: #D88900;
+  font-size: 21px;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.25s ease;
+}
+
+.cp-officer-help-card:nth-child(2) > svg {
+  background: #F7F9FC;
+  color: #0B1F3A;
+}
+
+.cp-officer-help-card:nth-child(3) > svg {
+  background: #fff4df;
+  color: #F5A623;
+}
+
+.cp-officer-help-card h3 {
+  margin: 0 0 9px;
+  color: #D88900;
+  font-size: 16px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+.cp-officer-help-card p {
+  margin: 0;
+  color: #F5A623;
+  font-size: 12px;
+  line-height: 1.7;
+  max-width: 300px;
+  position: relative;
+  z-index: 2;
+}
+
+.cp-officer-help-card:hover > svg {
+  transform: scale(1.05);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.cp-officer-footer {
+  padding: 28px 5px 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #F5A623;
+}
+
+.cp-officer-footer strong {
+  color: #D88900;
+}
+
+/* =========================================================
+   OFFICER COMPLAINT LIST
+========================================================= */
+
+.cp-officer-complaint-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 24px 0;
+}
+
+/* =========================================================
+   COMPLAINT CARD
+========================================================= */
+
+.cp-officer-complaint-card {
+  background: #ffffff;
+  border: 1px solid #FFF4D6;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 12px rgba(245, 166, 35, 0.04);
+}
+
+.cp-officer-complaint-card:hover {
+  transform: translateY(-3px);
+  border-color: #FFF4D6;
+  box-shadow: 0 10px 28px rgba(245, 166, 35, 0.09);
+}
+
+/* =========================================================
+   COMPLAINT CARD HEADER
+========================================================= */
+
+.cp-officer-complaint-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #FFF4D6;
+}
+
+.cp-officer-complaint-id {
+  display: block;
+  color: #D88900;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.cp-officer-complaint-card-header h3 {
+  margin: 0;
+  color: #D88900;
+  font-size: 21px;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.cp-officer-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 13px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cp-officer-status.pending {
+  background: #fff4df;
+  color: #c57a00;
+}
+
+.cp-officer-status.in-progress {
+  background: #F7F9FC;
+  color: #0B1F3A;
+}
+
+.cp-officer-status.resolved {
+  background: #FFF4D6;
+  color: #D88900;
+}
+
+.cp-officer-status.rejected {
+  background: #fff0f0;
+  color: #d63c3c;
+}
+
+/* =========================================================
+   COMPLAINT DETAILS
+========================================================= */
+
+.cp-officer-complaint-details {
+  padding-top: 18px;
+}
+
+.cp-officer-complaint-details p {
+  margin: 0 0 14px;
+  color: #F5A623;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.cp-officer-complaint-details p:last-child {
+  margin-bottom: 0;
+}
+
+.cp-officer-complaint-details strong {
+  color: #D88900;
+  font-weight: 700;
+}
+
+.cp-officer-complaint-details svg {
+  color: #D88900;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+/* =========================================================
+   COMPLAINT IMAGE
+========================================================= */
+
+.cp-officer-complaint-image {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #FFF4D6;
+}
+
+.cp-officer-complaint-image img {
+  width: 100%;
+  max-width: 500px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid #FFF4D6;
+  display: block;
+}
+
+/* =========================================================
+   COORDINATES
+========================================================= */
+
+.cp-officer-complaint-details p:nth-child(4) {
+  color: #F5A623;
+}
+
+/* =========================================================
+   RESPONSIVE - 1200px
+========================================================= */
+
+@media (max-width: 1200px) {
+  .cp-officer-main {
+    padding: 30px;
+  }
+
+  .cp-officer-stat-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cp-officer-function-grid,
+  .cp-officer-help-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+  .cp-officer-sidebar {
+    width: 235px;
+  }
+
+  .cp-officer-main {
+    width: calc(100% - 235px);
+    margin-left: 235px;
+    padding: 28px;
+  }
+
+  .cp-officer-function-grid,
+  .cp-officer-help-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - 850px
+========================================================= */
+
+@media (max-width: 850px) {
+  .cp-officer-sidebar {
+    width: 75px;
+    padding: 20px 10px;
+  }
+
+  .cp-officer-brand {
+    justify-content: center;
+    padding: 5px 0 20px;
+  }
+
+  .cp-officer-brand-text,
+  .cp-officer-nav-item span,
+  .cp-officer-profile-info,
+  .cp-officer-logout span {
+    display: none;
+  }
+
+  .cp-officer-brand-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .cp-officer-nav-item {
+    justify-content: center;
+    padding: 14px;
+  }
+
+  .cp-officer-sidebar-profile {
+    justify-content: center;
+    padding: 9px;
+  }
+
+  .cp-officer-logout {
+    justify-content: center;
+  }
+
+  .cp-officer-main {
+    width: calc(100% - 75px);
+    margin-left: 75px;
+    padding: 25px;
+  }
+
+  .cp-officer-stat-section {
+    grid-template-columns: 1fr;
+  }
+
+  .cp-officer-help-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - 600px
+========================================================= */
+
+@media (max-width: 600px) {
+  .cp-officer-main {
+    padding: 18px;
+  }
+
+  .cp-officer-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cp-officer-header h1 {
+    font-size: 26px;
+  }
+
+  .cp-officer-header-user {
+    width: 100%;
+  }
+
+  .cp-officer-welcome {
+    padding: 25px;
+  }
+
+  .cp-officer-welcome-content h2 {
+    font-size: 22px;
+  }
+
+  .cp-officer-welcome-icon {
+    display: none;
+  }
+
+  .cp-officer-stat-card {
+    padding: 17px;
+  }
+
+  .cp-officer-recent-header {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .cp-officer-content-section {
+    padding: 20px 16px;
+  }
+
+  .cp-officer-help-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .cp-officer-complaint-meta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cp-officer-complaint-meta span {
+    justify-content: center;
+  }
+
+  .cp-officer-footer {
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .cp-officer-complaint-card {
+    padding: 18px;
+  }
+
+  .cp-officer-complaint-card-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cp-officer-status {
+    align-self: flex-start;
+  }
+
+  .cp-officer-complaint-details p {
+    font-size: 12px;
+  }
+
+  .cp-officer-complaint-image img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+

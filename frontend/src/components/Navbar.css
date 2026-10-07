@@ -1,0 +1,595 @@
+/* =====================================================
+   CIVICPULSE AI - COMMON NAVBAR
+===================================================== */
+
+.cp-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 96px;
+
+  background: #ffffff;
+
+  border-top: 3px solid #303030;
+  border-bottom: 1px solid #E5E7EB;
+
+  z-index: 9999;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   NAVBAR INNER
+===================================================== */
+
+.cp-navbar-inner {
+  width: 100%;
+  max-width: 1650px;
+
+  height: 100%;
+
+  margin: 0 auto;
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.cp-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.cp-brand-icon {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.cp-brand-icon img {
+  width: 45px;
+  height: 45px;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+/* =====================================================
+   BRAND TEXT
+===================================================== */
+
+.cp-brand-text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.cp-brand-text strong {
+  color: #D88900;
+
+  font-size: 21px;
+  font-weight: 800;
+
+  line-height: 1;
+}
+
+.cp-brand-text span {
+  color: #0B1F3A;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.1px;
+}
+
+
+/* =====================================================
+   NAVIGATION LINKS
+===================================================== */
+
+.cp-nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 42px;
+
+  margin-left: auto;
+  margin-right: 38px;
+}
+
+.cp-nav-links button,
+.cp-nav-links a {
+  position: relative;
+
+  border: none;
+  background: transparent;
+
+  color: #F5A623;
+
+  font-family: inherit;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  padding: 8px 0;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.cp-nav-links button:hover,
+.cp-nav-links a:hover {
+  color: #071426;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   RIGHT ACTIONS
+===================================================== */
+
+.cp-nav-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+.top-utility-bar {
+  width: 100%;
+  background: #090909;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.top-utility-inner {
+  max-width: 1650px;
+  margin: 0 auto;
+  padding: 10px 6%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.top-utility-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.top-utility-theme {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.top-utility-theme:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.top-utility-select {
+  height: 38px;
+  min-width: 110px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+}
+
+.top-utility-select option {
+  color: #111111;
+}
+
+
+/* =====================================================
+   THEME BUTTON
+===================================================== */
+
+.cp-theme-button {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 12px;
+
+  border: 1px solid #E5E7EB;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.cp-theme-button:hover {
+  background: #F7F9FC;
+
+  border-color: #0B1F3A;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   LANGUAGE
+===================================================== */
+
+.cp-language-select {
+  height: 45px;
+
+  min-width: 96px;
+
+  padding: 0 12px;
+
+  border-radius: 12px;
+
+  border: 1px solid #FFF4D6;
+
+  background: #ffffff;
+
+  color: #667085;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+.cp-language-select:focus {
+  border-color: #0B1F3A;
+}
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.cp-login-btn {
+  height: 45px;
+
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1.5px solid #0B1F3A;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #071426;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+}
+
+.cp-login-btn:hover {
+  background: #0B1F3A;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   REGISTER BUTTON
+===================================================== */
+
+.cp-register-btn {
+  height: 45px;
+
+  padding: 0 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #F5A623;
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+}
+
+.cp-register-btn:hover {
+  background: #D88900;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-theme .cp-navbar {
+  background: #D88900;
+
+  border-bottom-color: #D88900;
+}
+
+body.dark-theme .cp-brand-text strong {
+  color: #ffffff;
+}
+
+body.dark-theme .cp-brand-text span {
+  color: #F5A623;
+}
+
+body.dark-theme .cp-nav-links button,
+body.dark-theme .cp-nav-links a {
+  color: #FFF4D6;
+}
+
+body.dark-theme .cp-nav-links button:hover,
+body.dark-theme .cp-nav-links a:hover {
+  color: #F5A623;
+}
+
+body.dark-theme .cp-theme-button,
+body.dark-theme .cp-language-select {
+  background: #D88900;
+
+  border-color: #D88900;
+
+  color: #FFF4D6;
+}
+
+body.dark-theme .cp-login-btn {
+  background: transparent;
+
+  border-color: #F5A623;
+
+  color: #F5A623;
+}
+
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media (max-width: 1200px) {
+
+  .cp-navbar-inner {
+    padding: 0 3%;
+  }
+
+  .cp-nav-links {
+    gap: 22px;
+
+    margin-right: 20px;
+  }
+
+  .cp-nav-links button,
+  .cp-nav-links a {
+    font-size: 14px;
+  }
+
+  .cp-brand-text strong {
+    font-size: 19px;
+  }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - SMALL TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .cp-navbar {
+    height: auto;
+
+    min-height: 90px;
+  }
+
+  .cp-navbar-inner {
+    padding: 15px 4%;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+  }
+
+  .cp-nav-links {
+    order: 3;
+
+    width: 100%;
+
+    justify-content: center;
+
+    margin: 0;
+
+    padding-top: 8px;
+
+    gap: 25px;
+  }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .cp-navbar {
+    position: relative;
+
+    height: auto;
+  }
+
+  .cp-navbar-inner {
+    padding: 14px 5%;
+
+    justify-content: space-between;
+  }
+
+  .cp-brand-icon,
+  .cp-brand-icon img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .cp-brand-text strong {
+    font-size: 17px;
+  }
+
+  .cp-brand-text span {
+    font-size: 9px;
+  }
+
+  .cp-nav-links {
+    order: 3;
+
+    display: flex;
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    justify-content: flex-start;
+
+    gap: 20px;
+
+    padding-bottom: 5px;
+
+    scrollbar-width: none;
+  }
+
+  .cp-nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cp-nav-links button,
+  .cp-nav-links a {
+    font-size: 13px;
+
+    white-space: nowrap;
+  }
+
+  .cp-nav-actions {
+    gap: 6px;
+  }
+
+  .cp-theme-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .cp-language-select {
+    min-width: 80px;
+
+    height: 38px;
+
+    font-size: 12px;
+  }
+
+  .cp-login-btn,
+  .cp-register-btn {
+    height: 38px;
+
+    padding: 0 12px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  .cp-brand-text span {
+    display: none;
+  }
+
+  .cp-nav-actions .cp-language-select {
+    display: none;
+  }
+
+  .cp-nav-links {
+    gap: 16px;
+  }
+
+}

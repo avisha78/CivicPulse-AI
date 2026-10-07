@@ -1,0 +1,980 @@
+/* =========================================================
+   CIVICPULSE AI
+   REPORT COMPLAINT PAGE
+  Royal Blue / Warm Amber Professional Theme
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+.cp-report-page {
+  min-height: 100vh;
+  background: #F7F9FC;
+  color: #172033;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  padding-bottom: 60px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.cp-report-header {
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    #071426 0%,
+    #0B1F3A 55%,
+    #0B1F3A 100%
+  );
+  color: white;
+  box-shadow: 0 5px 20px rgba(245, 166, 35, 0.2);
+}
+
+.cp-report-header-inner {
+  width: min(1100px, calc(100% - 40px));
+  min-height: 105px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.cp-report-back {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.cp-report-back:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateX(-3px);
+}
+
+.cp-report-header-content h1 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.cp-report-header-content p {
+  margin: 6px 0 0;
+  font-size: 15px;
+  opacity: 0.88;
+}
+
+.cp-report-header-badge {
+  width: 54px;
+  height: 54px;
+  margin-left: auto;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+}
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.cp-report-container {
+  width: min(1050px, calc(100% - 30px));
+  margin: 30px auto 0;
+}
+
+/* =========================================================
+   INTRO CARD
+========================================================= */
+
+.cp-report-intro {
+  position: relative;
+  overflow: hidden;
+  min-height: 145px;
+  margin-bottom: 22px;
+  padding: 27px 30px;
+  border-radius: 21px;
+  border: 1px solid #FFF4D6;
+  background: linear-gradient(
+    120deg,
+    #FFF4D6,
+    #ffffff
+  );
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  box-shadow: 0 7px 25px rgba(245, 166, 35, 0.05);
+}
+
+.cp-report-intro-icon {
+  width: 66px;
+  height: 66px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #FFF4D6;
+  color: #D88900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+  z-index: 2;
+}
+
+.cp-report-intro-content {
+  position: relative;
+  z-index: 2;
+}
+
+.cp-report-intro-content span {
+  color: #D88900;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.cp-report-intro-content h2 {
+  margin: 4px 0 5px;
+  font-size: 22px;
+  font-weight: 750;
+}
+
+.cp-report-intro-content p {
+  max-width: 670px;
+  margin: 0;
+  color: #F5A623;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.cp-report-intro-decoration {
+  position: absolute;
+  right: 35px;
+  bottom: -35px;
+  width: 180px;
+  height: 100px;
+  opacity: 0.5;
+}
+
+.cp-report-intro-decoration div {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+  background: #FFF4D6;
+}
+
+.cp-report-intro-decoration div:nth-child(1) {
+  width: 45px;
+  height: 72px;
+  right: 80px;
+}
+
+.cp-report-intro-decoration div:nth-child(2) {
+  width: 65px;
+  height: 48px;
+  right: 25px;
+}
+
+.cp-report-intro-decoration div:nth-child(3) {
+  width: 30px;
+  height: 85px;
+  right: 125px;
+}
+
+/* =========================================================
+   GENERAL ERROR
+========================================================= */
+
+.cp-report-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 14px 17px;
+  border-radius: 12px;
+  border: 1px solid #f0c5c9;
+  background: #fff2f3;
+  color: #b4232e;
+  font-size: 14px;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.cp-report-card {
+  margin-bottom: 20px;
+  padding: 28px;
+  border: 1px solid #FFF4D6;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow:
+    0 8px 28px rgba(245, 166, 35, 0.055);
+}
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.cp-report-section-title {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 23px;
+}
+
+.cp-report-section-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  background: #FFF4D6;
+  color: #D88900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.cp-report-section-title span {
+  display: block;
+  color: #D88900;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+}
+
+.cp-report-section-title h2 {
+  margin: 4px 0 0;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 720;
+}
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.cp-report-label {
+  display: block;
+  margin-bottom: 9px;
+  color: #D88900;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.cp-report-input,
+.cp-report-textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid #FFF4D6;
+  border-radius: 12px;
+  background: #fbfdfc;
+  color: #D88900;
+  font-family: inherit;
+  font-size: 15px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.cp-report-input {
+  height: 53px;
+  padding: 0 16px;
+}
+
+.cp-report-input:focus,
+.cp-report-textarea:focus {
+  border-color: #D88900;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(245, 166, 35, 0.09);
+}
+
+.cp-report-input::placeholder,
+.cp-report-textarea::placeholder {
+  color: #F5A623;
+}
+
+.cp-report-input-error {
+  border-color: #dc3545 !important;
+}
+
+.cp-report-field-error {
+  margin-top: 7px;
+  color: #dc3545;
+  font-size: 13px;
+}
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.cp-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+}
+
+.cp-category-item {
+  position: relative;
+  min-height: 128px;
+  padding: 16px 10px;
+  border: 1px solid #FFF4D6;
+  border-radius: 16px;
+  background: #ffffff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.cp-category-item:hover {
+  transform: translateY(-3px);
+  border-color: #6c91cf;
+  box-shadow:
+    0 8px 20px rgba(245, 166, 35, 0.09);
+}
+
+.cp-category-item.selected {
+  border: 2px solid #0B1F3A;
+  background: #F7F9FC;
+  box-shadow:
+    0 7px 20px rgba(11, 31, 58, 0.11);
+}
+
+.cp-category-item.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 9px;
+  right: 10px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #F5A623;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cp-category-emoji {
+  margin-bottom: 9px;
+  font-size: 29px;
+  line-height: 1;
+}
+
+.cp-category-item strong {
+  color: #D88900;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cp-category-item small {
+  margin-top: 4px;
+  color: #F5A623;
+  font-size: 11px;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.cp-report-textarea {
+  min-height: 145px;
+  padding: 15px 16px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.cp-description-footer {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #F5A623;
+  font-size: 12px;
+}
+
+/* =========================================================
+   LOCATION HEADER
+========================================================= */
+
+.cp-report-location-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.cp-current-location-btn {
+  flex-shrink: 0;
+  min-height: 45px;
+  padding: 0 15px;
+  border: 1px solid #FFF4D6;
+  border-radius: 11px;
+  background: #FFF4D6;
+  color: #D88900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.cp-current-location-btn:hover {
+  border-color: #F5A623;
+  background: #FFF4D6;
+}
+
+.cp-current-location-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   LOCATION INPUT
+========================================================= */
+
+.cp-location-input-wrapper {
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.cp-location-input-wrapper > svg {
+  position: absolute;
+  left: 17px;
+  top: 18px;
+  z-index: 2;
+  color: #D88900;
+  font-size: 16px;
+}
+
+.cp-location-input {
+  padding-left: 47px !important;
+}
+
+.cp-location-searching {
+  margin: 8px 0;
+  color: #D88900;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+}
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.cp-map-wrapper {
+  margin-top: 20px;
+}
+
+.cp-map-top-label {
+  margin-bottom: 9px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #F5A623;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.cp-map-top-label svg {
+  color: #D88900;
+}
+
+.cp-map-top-label small {
+  margin-left: auto;
+  color: #F5A623;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.cp-report-map {
+  width: 100%;
+  height: 370px;
+  overflow: hidden;
+  border: 1px solid #FFF4D6;
+  border-radius: 16px;
+  box-shadow:
+    0 4px 16px rgba(245, 166, 35, 0.07);
+}
+
+.cp-map-help {
+  margin-top: 10px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  background: #FFF4D6;
+  color: #F5A623;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.cp-map-help svg {
+  flex-shrink: 0;
+  color: #D88900;
+}
+
+/* =========================================================
+   IMAGE UPLOAD
+========================================================= */
+
+.cp-upload-box {
+  width: 100%;
+  min-height: 175px;
+  border: 2px dashed #FFF4D6;
+  border-radius: 17px;
+  background: #f8fcfa;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.cp-upload-box:hover {
+  border-color: #D88900;
+  background: #FFF4D6;
+}
+
+.cp-upload-icon {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 11px;
+  border-radius: 15px;
+  background: #FFF4D6;
+  color: #D88900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.cp-upload-box strong {
+  color: #D88900;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.cp-upload-box span {
+  margin-top: 6px;
+  color: #F5A623;
+  font-size: 12px;
+}
+
+.cp-upload-box input {
+  display: none;
+}
+
+/* =========================================================
+   IMAGE PREVIEW
+========================================================= */
+
+.cp-preview-wrapper {
+  margin-top: 18px;
+}
+
+.cp-preview-label {
+  margin-bottom: 9px;
+  color: #D88900;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.cp-preview-label svg {
+  color: #D88900;
+}
+
+.cp-preview-image-wrapper {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 15px;
+  background: #f3f7f5;
+  border: 1px solid #FFF4D6;
+}
+
+.cp-report-preview {
+  display: block;
+  width: 230px;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 11px;
+}
+
+/* =========================================================
+   PRIVACY
+========================================================= */
+
+.cp-report-privacy {
+  margin-bottom: 17px;
+  padding: 17px 20px;
+  border: 1px solid #FFF4D6;
+  border-radius: 15px;
+  background: #FFF4D6;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cp-privacy-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #FFF4D6;
+  color: #D88900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.cp-report-privacy strong {
+  display: block;
+  color: #D88900;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cp-report-privacy span {
+  display: block;
+  margin-top: 3px;
+  color: #F5A623;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.cp-submit-complaint {
+  width: 100%;
+  min-height: 59px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(
+    135deg,
+    #D88900,
+    #D88900
+  );
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: 0.2px;
+  box-shadow:
+    0 9px 23px rgba(245, 166, 35, 0.2);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cp-submit-complaint:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 28px rgba(245, 166, 35, 0.28);
+}
+
+.cp-submit-complaint:active {
+  transform: translateY(0);
+}
+
+.cp-submit-complaint:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cp-submit-note {
+  margin: 10px 0 0;
+  color: #F5A623;
+  text-align: center;
+  font-size: 11px;
+}
+
+/* =========================================================
+   LEAFLET
+========================================================= */
+
+.cp-report-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .cp-report-header-inner {
+    width: calc(100% - 30px);
+  }
+
+  .cp-report-container {
+    width: calc(100% - 24px);
+    margin-top: 20px;
+  }
+
+  .cp-report-card {
+    padding: 22px;
+  }
+
+  .cp-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cp-report-location-heading {
+    flex-direction: column;
+  }
+
+  .cp-current-location-btn {
+    width: 100%;
+  }
+
+  .cp-report-map {
+    height: 330px;
+  }
+
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+
+  .cp-report-page {
+    padding-bottom: 35px;
+  }
+
+  .cp-report-header-inner {
+    min-height: 82px;
+    width: calc(100% - 20px);
+    gap: 12px;
+  }
+
+  .cp-report-back {
+    width: 42px;
+    height: 42px;
+    font-size: 15px;
+  }
+
+  .cp-report-header-content h1 {
+    font-size: 22px;
+  }
+
+  .cp-report-header-content p {
+    font-size: 12px;
+  }
+
+  .cp-report-header-badge {
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+  }
+
+  .cp-report-container {
+    width: calc(100% - 16px);
+    margin-top: 15px;
+  }
+
+  .cp-report-intro {
+    min-height: auto;
+    padding: 19px;
+    gap: 14px;
+    border-radius: 17px;
+  }
+
+  .cp-report-intro-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 21px;
+  }
+
+  .cp-report-intro-content h2 {
+    font-size: 18px;
+  }
+
+  .cp-report-intro-content p {
+    font-size: 12px;
+  }
+
+  .cp-report-intro-decoration {
+    display: none;
+  }
+
+  .cp-report-card {
+    padding: 18px;
+    border-radius: 16px;
+    margin-bottom: 15px;
+  }
+
+  .cp-report-section-title {
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .cp-report-section-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    font-size: 16px;
+  }
+
+  .cp-report-section-title h2 {
+    font-size: 17px;
+  }
+
+  .cp-report-section-title span {
+    font-size: 9px;
+  }
+
+  .cp-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+  }
+
+  .cp-category-item {
+    min-height: 108px;
+    padding: 10px 6px;
+  }
+
+  .cp-category-emoji {
+    font-size: 24px;
+    margin-bottom: 7px;
+  }
+
+  .cp-category-item strong {
+    font-size: 12px;
+  }
+
+  .cp-category-item small {
+    font-size: 9px;
+  }
+
+  .cp-report-location-heading {
+    gap: 3px;
+  }
+
+  .cp-map-top-label {
+    flex-wrap: wrap;
+  }
+
+  .cp-map-top-label small {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .cp-report-map {
+    height: 280px;
+  }
+
+  .cp-map-help {
+    align-items: flex-start;
+    font-size: 11px;
+  }
+
+  .cp-upload-box {
+    min-height: 150px;
+  }
+
+  .cp-report-preview {
+    width: 190px;
+    height: 140px;
+  }
+
+  .cp-report-privacy {
+    padding: 14px;
+  }
+
+  .cp-privacy-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .cp-report-privacy strong {
+    font-size: 12px;
+  }
+
+  .cp-report-privacy span {
+    font-size: 10px;
+  }
+
+  .cp-submit-complaint {
+    min-height: 54px;
+    font-size: 15px;
+  }
+
+}
+
+/* =========================================================
+   VERY SMALL SCREEN
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .cp-category-item {
+    min-height: 100px;
+  }
+
+  .cp-category-item strong {
+    font-size: 11px;
+  }
+
+  .cp-category-item small {
+    display: none;
+  }
+
+  .cp-report-map {
+    height: 250px;
+  }
+
+}

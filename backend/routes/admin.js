@@ -114,9 +114,7 @@ router.get(
 
         GROUP BY category
 
-        ORDER BY count DESC
-
-        LIMIT 5
+        ORDER BY count DESC, category ASC
       `);
 
       /* ============================================
@@ -128,7 +126,7 @@ router.get(
           CASE
             WHEN category =
               'Road Damage / Potholes'
-            THEN 'Engineering'
+            THEN 'Roads'
 
             WHEN category =
               'Garbage & Waste Management'
@@ -140,11 +138,11 @@ router.get(
 
             WHEN category =
               'Street Light'
-            THEN 'Electricity'
+            THEN 'Street Lighting'
 
             WHEN category =
               'Drainage & Sewerage'
-            THEN 'Water Supply'
+            THEN 'Drainage'
 
             ELSE 'Others'
           END AS department,
@@ -201,6 +199,29 @@ router.get(
             'week',
             created_at
           )
+      `);
+
+      /* ============================================
+         MONTHLY COMPLAINT DATA
+      ============================================ */
+
+      const monthlyResult = await pool.query(`
+        SELECT
+          TO_CHAR(month_start, 'Mon YYYY') AS month,
+          COUNT(c.id)::int AS count
+
+        FROM generate_series(
+          DATE_TRUNC('month', CURRENT_DATE) - INTERVAL '5 months',
+          DATE_TRUNC('month', CURRENT_DATE),
+          INTERVAL '1 month'
+        ) AS months(month_start)
+
+        LEFT JOIN complaints c
+          ON c.created_at >= month_start
+          AND c.created_at < month_start + INTERVAL '1 month'
+
+        GROUP BY month_start
+        ORDER BY month_start
       `);
 
       /* ============================================
@@ -261,6 +282,9 @@ router.get(
 
         weeklyComplaints:
           weeklyResult.rows,
+
+        monthlyComplaints:
+          monthlyResult.rows,
 
         recentComplaints:
           recentResult.rows,
@@ -458,24 +482,93 @@ router.put(
   }
 );
 
+
 router.put("/complaints/:id/assign", authenticateAdmin, async (req, res) => {
-  const { officerId } = req.body;
-  if (!officerId) return res.status(400).json({ message: "officerId is required" });
-  const result = await pool.query(
-    `UPDATE complaints SET officer_id = $1, status = CASE WHEN status = 'Pending' THEN 'In Progress' ELSE status END
-     WHERE id = $2 RETURNING *`,
-    [officerId, req.params.id]
-  );
-  if (!result.rows.length) return res.status(404).json({ message: "Complaint not found" });
-  const complaint = result.rows[0];
-  await pool.query(
-    `INSERT INTO complaint_status_history (complaint_id, old_status, new_status, remarks, updated_by)
-     VALUES ($1, $2, $3, $4, $5)`,
-    [complaint.id, "Pending", complaint.status, "Assigned to officer", String(req.user.id)]
-  );
-  await createNotification(complaint.user_id, complaint.id, "Complaint assigned", "Your complaint has been assigned to a municipal officer.");
-  res.json({ complaint });
+  try {
+    const { officerId } = req.body;
+
+    if (!officerId) {
+      return res.status(400).json({
+        message: "officerId is required",
+      });
+    }
+
+    const client = await pool.connect();
+
+    try {
+      await client.query("BEGIN");
+
+      // Get the actual previous status
+      const previousResult = await client.query(
+        `SELECT id, status
+         FROM complaints
+         WHERE id = $1
+         FOR UPDATE`,
+        [req.params.id]
+      );
+
+      if (!previousResult.rows.length) {
+        await client.query("ROLLBACK");
+        return res.status(404).json({
+          message: "Complaint not found",
+        });
+      }
+
+      const oldStatus = previousResult.rows[0].status;
+      const newStatus =
+        oldStatus === "Pending" ? "In Progress" : oldStatus;
+
+      const result = await client.query(
+        `UPDATE complaints
+         SET officer_id = $1, status = $2
+         WHERE id = $3
+         RETURNING *`,
+        [officerId, newStatus, req.params.id]
+      );
+
+      const complaint = result.rows[0];
+
+      // Save history only when the status actually changes
+      if (oldStatus !== newStatus) {
+        await client.query(
+          `INSERT INTO complaint_status_history
+           (complaint_id, old_status, new_status, remarks, updated_by)
+           VALUES ($1, $2, $3, $4, $5)`,
+          [
+            complaint.id,
+            oldStatus,
+            newStatus,
+            "Assigned to officer",
+            String(req.user.id),
+          ]
+        );
+      }
+
+      await client.query("COMMIT");
+
+      await createNotification(
+        complaint.user_id,
+        complaint.id,
+        "Complaint assigned",
+        "Your complaint has been assigned to a municipal officer."
+      );
+
+      return res.json({ complaint });
+    } catch (error) {
+      await client.query("ROLLBACK");
+      throw error;
+    } finally {
+      client.release();
+    }
+  } catch (error) {
+    console.error("Assign complaint error:", error);
+
+    return res.status(500).json({
+      message: "Failed to assign complaint",
+    });
+  }
 });
+
 
 router.get("/complaints/hotspots", authenticateAdmin, async (req, res) => {
   const result = await pool.query(
@@ -541,6 +634,22 @@ router.get("/officers", authenticateAdmin, async (req, res) => {
   }
 });
 
+/* ==================================================
+   GET GIS & MAP DATA (For Leaflet & Hotspots)
+================================================== */
+router.get("/gis-data", authenticateAdmin, async (req, res) => {
+  try {
+    const result = await pool.query(`
+      SELECT id, title, category, status, latitude, longitude, severity
+      FROM complaints
+      WHERE latitude IS NOT NULL AND longitude IS NOT NULL
+    `);
+    res.json({ complaints: result.rows });
+  } catch (error) {
+    console.error("GIS data fetch error:", error);
+    res.status(500).json({ message: "Failed to fetch GIS data" });
+  }
+});
 /* ==================================================
    EXPORT ROUTER
 ================================================== */

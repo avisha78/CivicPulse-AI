@@ -443,23 +443,90 @@ router.get(
   }
 );
 
-router.put("/complaints/:id/resolve", authenticateOfficer, resolutionUpload.single("resolutionImage"), async (req, res) => {
-  const remarks = String(req.body.remarks || "").trim();
-  const result = await db.query(
-    `UPDATE complaints SET status = 'Resolved', resolution_image = $1, resolution_remarks = $2, resolved_at = CURRENT_TIMESTAMP
-     WHERE id = $3 AND officer_id = $4 RETURNING *`,
-    [req.file?.filename || null, remarks || null, req.params.id, req.user.id]
-  );
-  if (!result.rows.length) return res.status(404).json({ message: "Assigned complaint not found" });
-  const complaint = result.rows[0];
-  await db.query(
-    `INSERT INTO complaint_status_history (complaint_id, old_status, new_status, remarks, updated_by)
-     VALUES ($1, 'In Progress', 'Resolved', $2, $3)`,
-    [complaint.id, remarks || null, String(req.user.id)]
-  );
-  await createNotification(complaint.user_id, complaint.id, "Complaint resolved", "Your complaint has been marked resolved. Please verify and rate the resolution.");
-  res.json({ complaint });
-});
+
+router.put(
+  "/complaints/:id/resolve",
+  authenticateOfficer,
+  resolutionUpload.single("resolutionImage"),
+  async (req, res) => {
+    const remarks = String(req.body.remarks || "").trim();
+    const client = await db.connect();
+
+    try {
+      await client.query("BEGIN");
+
+      const previousResult = await client.query(
+        `SELECT *
+         FROM complaints
+         WHERE id = $1 AND officer_id = $2
+         FOR UPDATE`,
+        [req.params.id, req.user.id]
+      );
+
+      if (!previousResult.rows.length) {
+        await client.query("ROLLBACK");
+        return res.status(404).json({
+          message: "Assigned complaint not found",
+        });
+      }
+
+      const oldStatus = previousResult.rows[0].status;
+
+      const result = await client.query(
+        `UPDATE complaints
+         SET status = 'Resolved',
+             resolution_image = COALESCE($1, resolution_image),
+             resolution_remarks = $2,
+             resolved_at = CURRENT_TIMESTAMP
+         WHERE id = $3 AND officer_id = $4
+         RETURNING *`,
+        [
+          req.file?.filename || null,
+          remarks || null,
+          req.params.id,
+          req.user.id,
+        ]
+      );
+
+      const complaint = result.rows[0];
+
+      if (oldStatus !== "Resolved") {
+        await client.query(
+          `INSERT INTO complaint_status_history
+           (complaint_id, old_status, new_status, remarks, updated_by)
+           VALUES ($1, $2, $3, $4, $5)`,
+          [
+            complaint.id,
+            oldStatus,
+            "Resolved",
+            remarks || null,
+            String(req.user.id),
+          ]
+        );
+      }
+
+      await client.query("COMMIT");
+
+      await createNotification(
+        complaint.user_id,
+        complaint.id,
+        "Complaint resolved",
+        "Your complaint has been marked resolved. Please verify and rate the resolution."
+      );
+
+      return res.json({ complaint });
+    } catch (error) {
+      await client.query("ROLLBACK");
+      console.error("Resolve complaint error:", error);
+
+      return res.status(500).json({
+        message: "Failed to resolve complaint",
+      });
+    } finally {
+      client.release();
+    }
+  }
+);
 
 // =====================================================
 // TEST OFFICER ROUTE

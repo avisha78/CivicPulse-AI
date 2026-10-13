@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -7,11 +8,10 @@ import {
   FaUser,
   FaEnvelope,
   FaPhone,
+  FaTimes,
 } from "react-icons/fa";
-
 import { useAppSettings } from "../components/AppSettingsContext";
 import cityWards from "./cityWards";
-
 import "./Register.css";
 
 function Register() {
@@ -39,16 +39,17 @@ function Register() {
 
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
-
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
   const [showOTP, setShowOTP] = useState(false);
   const [otp, setOtp] = useState("");
   const [otpLoading, setOtpLoading] = useState(false);
   const [registerLoading, setRegisterLoading] = useState(false);
-
   const [termsAccepted, setTermsAccepted] = useState(false);
+
+  // Policy modals
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   // ==================================================
   // HANDLE INPUT
@@ -57,7 +58,10 @@ function Register() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
+
+
     let newValue = value;
+
 
     // Full name - only letters and spaces
     if (name === "fullName") {
@@ -239,11 +243,10 @@ function Register() {
           email: formData.email.trim().toLowerCase(),
           mobile: formData.mobile,
           password: formData.password,
-
-          // NEW
+                    // NEW
           city: formData.city,
           ward: formData.ward,
-
+          street: formData.street,
           nationalId: formData.nationalId,
         }
       );
@@ -294,7 +297,6 @@ function Register() {
       setErrors({
         otp: t("validOTP"),
       });
-
       return;
     }
 
@@ -329,6 +331,15 @@ function Register() {
     } finally {
       setOtpLoading(false);
     }
+  };
+
+  // ==================================================
+  // CLOSE POLICY MODALS
+  // ==================================================
+
+  const closePolicyModals = () => {
+    setShowTermsModal(false);
+    setShowPrivacyModal(false);
   };
 
   // ==================================================
@@ -511,6 +522,7 @@ function Register() {
               </div>
 
               <div>
+
                 <h2>
                   {showOTP
                     ? t("verifyYourEmail")
@@ -522,6 +534,7 @@ function Register() {
                     ? t("enterOTPFromEmail")
                     : t("registerToReportTrack")}
                 </p>
+
               </div>
 
             </div>
@@ -555,9 +568,7 @@ function Register() {
 
               <form onSubmit={handleSubmit}>
 
-                {/* ==================================================
-                    FULL NAME
-                ================================================== */}
+                {/* FULL NAME */}
 
                 <div className="register-form-group">
 
@@ -573,6 +584,7 @@ function Register() {
                         : ""
                     }`}
                   >
+
                     <input
                       type="text"
                       name="fullName"
@@ -580,6 +592,7 @@ function Register() {
                       value={formData.fullName}
                       onChange={handleChange}
                     />
+
                   </div>
 
                   {errors.fullName && (
@@ -590,9 +603,7 @@ function Register() {
 
                 </div>
 
-                {/* ==================================================
-                    EMAIL
-                ================================================== */}
+                {/* EMAIL */}
 
                 <div className="register-form-group">
 
@@ -608,6 +619,7 @@ function Register() {
                         : ""
                     }`}
                   >
+
                     <input
                       type="email"
                       name="email"
@@ -615,6 +627,7 @@ function Register() {
                       value={formData.email}
                       onChange={handleChange}
                     />
+
                   </div>
 
                   {errors.email && (
@@ -625,9 +638,7 @@ function Register() {
 
                 </div>
 
-                {/* ==================================================
-                    MOBILE
-                ================================================== */}
+                {/* MOBILE */}
 
                 <div className="register-form-group">
 
@@ -643,6 +654,7 @@ function Register() {
                         : ""
                     }`}
                   >
+
                     <input
                       type="text"
                       name="mobile"
@@ -652,6 +664,7 @@ function Register() {
                       maxLength="10"
                       inputMode="numeric"
                     />
+
                   </div>
 
                   {errors.mobile && (
@@ -662,9 +675,7 @@ function Register() {
 
                 </div>
 
-                {/* ==================================================
-                    PASSWORD + CONFIRM PASSWORD
-                ================================================== */}
+                {/* PASSWORD + CONFIRM PASSWORD */}
 
                 <div className="register-password-row">
 
@@ -683,6 +694,7 @@ function Register() {
                           : ""
                       }`}
                     >
+
                       <input
                         type={
                           showPassword
@@ -740,6 +752,7 @@ function Register() {
                           : ""
                       }`}
                     >
+
                       <input
                         type={
                           showConfirmPassword
@@ -784,9 +797,7 @@ function Register() {
 
                 </div>
 
-                {/* ==================================================
-                    CITY
-                ================================================== */}
+                {/* CITY */}
 
                 <div className="register-form-group">
 
@@ -801,6 +812,7 @@ function Register() {
                         : ""
                     }`}
                   >
+
                     <select
                       name="city"
                       value={formData.city}
@@ -824,6 +836,7 @@ function Register() {
                       )}
 
                     </select>
+
                   </div>
 
                   {errors.city && (
@@ -834,9 +847,7 @@ function Register() {
 
                 </div>
 
-                {/* ==================================================
-                    WARD
-                ================================================== */}
+                {/* WARD */}
 
                 <div className="register-form-group">
 
@@ -851,6 +862,7 @@ function Register() {
                         : ""
                     }`}
                   >
+
                     <select
                       name="ward"
                       value={formData.ward}
@@ -865,18 +877,19 @@ function Register() {
                           : "First Select City"}
                       </option>
 
-                      {(
-                        cityWards[formData.city] || []
-                      ).map((ward) => (
-                        <option
-                          key={ward}
-                          value={ward}
-                        >
-                          {ward}
-                        </option>
-                      ))}
+                      {(cityWards[formData.city] || []).map(
+                        (ward) => (
+                          <option
+                            key={ward}
+                            value={ward}
+                          >
+                            {ward}
+                          </option>
+                        )
+                      )}
 
                     </select>
+
                   </div>
 
                   {errors.ward && (
@@ -887,9 +900,7 @@ function Register() {
 
                 </div>
 
-                {/* ==================================================
-                    AADHAAR / NATIONAL ID
-                ================================================== */}
+                {/* AADHAAR / NATIONAL ID */}
 
                 <div className="register-form-group">
 
@@ -909,6 +920,7 @@ function Register() {
                         : ""
                     }`}
                   >
+
                     <input
                       type="text"
                       name="nationalId"
@@ -918,6 +930,7 @@ function Register() {
                       maxLength="12"
                       inputMode="numeric"
                     />
+
                   </div>
 
                   {errors.nationalId && (
@@ -940,7 +953,6 @@ function Register() {
                       type="checkbox"
                       checked={termsAccepted}
                       onChange={(e) => {
-
                         setTermsAccepted(
                           e.target.checked
                         );
@@ -951,7 +963,6 @@ function Register() {
                             terms: "",
                           }));
                         }
-
                       }}
                     />
 
@@ -961,6 +972,9 @@ function Register() {
                       <button
                         type="button"
                         className="register-policy-link"
+                        onClick={() =>
+                          setShowTermsModal(true)
+                        }
                       >
                         Terms & Conditions
                       </button>
@@ -970,6 +984,9 @@ function Register() {
                       <button
                         type="button"
                         className="register-policy-link"
+                        onClick={() =>
+                          setShowPrivacyModal(true)
+                        }
                       >
                         Privacy Policy
                       </button>
@@ -986,9 +1003,7 @@ function Register() {
 
                 </div>
 
-                {/* ==================================================
-                    REGISTER BUTTON
-                ================================================== */}
+                {/* REGISTER BUTTON */}
 
                 <button
                   type="submit"
@@ -1059,6 +1074,7 @@ function Register() {
                         : ""
                     }`}
                   >
+
                     <input
                       type="text"
                       placeholder={t("otpPlaceholder")}
@@ -1073,6 +1089,7 @@ function Register() {
                       maxLength="6"
                       inputMode="numeric"
                     />
+
                   </div>
 
                   {errors.otp && (
@@ -1107,12 +1124,10 @@ function Register() {
                 <button
                   type="button"
                   onClick={() => {
-
                     setShowOTP(false);
                     setOtp("");
                     setErrors({});
                     setSuccessMessage("");
-
                   }}
                   style={{
                     width: "100%",
@@ -1123,13 +1138,10 @@ function Register() {
                     cursor: "pointer",
                   }}
                 >
-
                   ← {t("editRegistrationDetails")}
-
                 </button>
 
               </div>
-
             )}
 
             {/* ==================================================
@@ -1173,8 +1185,228 @@ function Register() {
 
       </footer>
 
+      {/* ==================================================
+          TERMS & CONDITIONS MODAL
+      ================================================== */}
+
+      {showTermsModal && (
+        <div
+          className="register-policy-overlay"
+          onClick={closePolicyModals}
+        >
+          <div
+            className="register-policy-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            <div className="register-policy-header">
+
+              <h2>
+                Terms & Conditions
+              </h2>
+
+              <button
+                type="button"
+                className="register-policy-close"
+                onClick={closePolicyModals}
+                aria-label="Close Terms & Conditions"
+              >
+                <FaTimes />
+              </button>
+
+            </div>
+
+            <div className="register-policy-content">
+
+              <h3>1. Acceptance of Terms</h3>
+
+              <p>
+                By creating an account on CivicPulse AI,
+                you agree to follow these Terms & Conditions.
+                If you do not agree with these terms, please
+                do not create an account.
+              </p>
+
+              <h3>2. Use of CivicPulse AI</h3>
+
+              <p>
+                CivicPulse AI is a civic grievance management
+                platform that allows citizens to report public
+                issues and track their complaints.
+              </p>
+
+              <h3>3. Accurate Information</h3>
+
+              <p>
+                You agree to provide accurate and genuine
+                information while creating your account and
+                submitting complaints.
+              </p>
+
+              <h3>4. Responsible Complaints</h3>
+
+              <p>
+                Complaints should relate to genuine civic
+                issues. False, misleading, abusive or
+                inappropriate complaints should not be submitted.
+              </p>
+
+              <h3>5. Complaint Processing</h3>
+
+              <p>
+                CivicPulse AI may use automated AI systems to
+                classify, prioritize and route complaints to
+                the appropriate department.
+              </p>
+
+              <h3>6. Account Security</h3>
+
+              <p>
+                You are responsible for keeping your login
+                credentials secure and for all activities
+                performed through your account.
+              </p>
+
+              <h3>7. Changes to Terms</h3>
+
+              <p>
+                CivicPulse AI may update these Terms &
+                Conditions when necessary. Continued use of
+                the platform means you accept the updated terms.
+              </p>
+
+            </div>
+
+            <div className="register-policy-footer">
+
+              <button
+                type="button"
+                onClick={closePolicyModals}
+              >
+                Close
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      )}
+
+      {/* ==================================================
+          PRIVACY POLICY MODAL
+      ================================================== */}
+
+      {showPrivacyModal && (
+        <div
+          className="register-policy-overlay"
+          onClick={closePolicyModals}
+        >
+          <div
+            className="register-policy-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            <div className="register-policy-header">
+
+              <h2>
+                Privacy Policy
+              </h2>
+
+              <button
+                type="button"
+                className="register-policy-close"
+                onClick={closePolicyModals}
+                aria-label="Close Privacy Policy"
+              >
+                <FaTimes />
+              </button>
+
+            </div>
+
+            <div className="register-policy-content">
+
+              <h3>1. Information We Collect</h3>
+
+              <p>
+                CivicPulse AI may collect information such as
+                your name, email address, mobile number, city,
+                ward and complaint details when you use the
+                platform.
+              </p>
+
+              <h3>2. Complaint Information</h3>
+
+              <p>
+                Information submitted with a civic complaint,
+                including descriptions, locations and uploaded
+                images, may be used to process and manage the
+                complaint.
+              </p>
+
+              <h3>3. Use of Information</h3>
+
+              <p>
+                Your information is used to provide civic
+                grievance services, verify your account,
+                process complaints and improve the platform.
+              </p>
+
+              <h3>4. AI Processing</h3>
+
+              <p>
+                CivicPulse AI may process complaint text,
+                images and location information using AI
+                systems for classification, prioritization,
+                verification and duplicate detection.
+              </p>
+
+              <h3>5. Data Security</h3>
+
+              <p>
+                Reasonable security measures are used to
+                protect account and complaint information from
+                unauthorized access.
+              </p>
+
+              <h3>6. Information Sharing</h3>
+
+              <p>
+                Complaint information may be shared with the
+                relevant civic department or authorized
+                officials when required to process and resolve
+                the reported issue.
+              </p>
+
+              <h3>7. Policy Updates</h3>
+
+              <p>
+                This Privacy Policy may be updated from time
+                to time to reflect changes in the platform or
+                applicable requirements.
+              </p>
+
+            </div>
+
+            <div className="register-policy-footer">
+
+              <button
+                type="button"
+                onClick={closePolicyModals}
+              >
+                Close
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
 
 export default Register;
+
+
+

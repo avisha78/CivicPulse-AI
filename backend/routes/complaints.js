@@ -387,29 +387,44 @@ try {
 )
 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)
       RETURNING *`,
-      [
-        req.user.id,
-        category,
-        description.trim(),
-        location.trim(),
-        latitude || null,
-        longitude || null,
-        image || null,
-        finalAIResult?.category || null,
-        finalAIResult?.department || null,
-        finalAIResult?.confidence || null,
-        finalAIResult?.source || null,
-        priorityResult?.priority || "Medium",
-        priorityResult?.severity || "Medium",
-        priorityResult?.score || null,
-        isDuplicate,
-        isDuplicate ? duplicateComplaintId : null,
-        duplicateSimilarity || null,
-        "citizen",
-      ]
+      
+[
+  req.user.id,
+  category,
+  description.trim(),
+  location.trim(),
+  latitude || null,
+  longitude || null,
+  image || null,
+  finalAIResult?.category || null,
+  finalAIResult?.department || null,
+  finalAIResult?.confidence ?? null,
+  finalAIResult?.source || null,
+  priorityResult?.priority || "Medium",
+  priorityResult?.severity || "Medium",
+  priorityResult?.score ?? null,
+  isDuplicate,
+  isDuplicate ? duplicateComplaintId : null,
+  duplicateSimilarity,
+  "citizen",
+]
+
     );
 
     let savedComplaint = result.rows[0];
+    
+await pool.query(
+  `INSERT INTO complaint_status_history
+   (complaint_id, old_status, new_status, remarks, updated_by)
+   VALUES ($1, NULL, $2, $3, $4)`,
+  [
+    savedComplaint.id,
+    savedComplaint.status,
+    "Complaint submitted",
+    String(req.user.id),
+  ]
+);
+
     if (finalAIResult?.department) {
       const officerResult = await pool.query(
         `SELECT id FROM officers
@@ -504,7 +519,7 @@ router.get("/nearby", async (req, res) => {
 
 router.get("/:id/history", authenticateToken, async (req, res) => {
   const result = await pool.query(
-    `SELECT * FROM complaint_status_history WHERE complaint_id = $1 ORDER BY created_at ASC`,
+    `SELECT * FROM complaint_status_history WHERE complaint_id = $1 ORDER BY updated_at ASC`,
     [req.params.id]
   );
   res.json({ history: result.rows });

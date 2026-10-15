@@ -65,6 +65,9 @@ export function AppSettingsProvider({ children }) {
       "dark-theme",
       darkMode
     );
+    document.documentElement.dataset.theme = darkMode
+      ? "dark"
+      : "light";
   }, [darkMode]);
 
   // ==================================================

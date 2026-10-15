@@ -7,6 +7,56 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  --cp-bg: #f8fafc;
+  --cp-surface: #ffffff;
+  --cp-surface-muted: #f1f5f9;
+  --cp-text-primary: #0f172a;
+  --cp-text-muted: #64748b;
+  --cp-border: #e2e8f0;
+  --cp-primary: #1e3a8a;
+  --cp-primary-hover: #2563eb;
+  --cp-secondary: #0d9488;
+  --cp-focus-ring: rgba(37, 99, 235, 0.25);
+  --cp-status-warning: #f59e0b;
+  --cp-status-success: #22c55e;
+  --cp-status-critical: #ef4444;
+  --cp-status-progress: #6366f1;
+  --cp-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  color-scheme: light;
+}
+
+[data-theme="dark"],
+body.dark-theme {
+  --cp-bg: #0f172a;
+  --cp-surface: #1e293b;
+  --cp-surface-muted: #273449;
+  --cp-text-primary: #f8fafc;
+  --cp-text-muted: #94a3b8;
+  --cp-border: #334155;
+  --cp-primary: #3b82f6;
+  --cp-primary-hover: #60a5fa;
+  --cp-secondary: #14b8a6;
+  --cp-focus-ring: rgba(59, 130, 246, 0.35);
+  --cp-shadow: 0 8px 24px rgba(2, 6, 23, 0.3);
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  background: var(--cp-bg);
+  color: var(--cp-text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button,
+input,
+select,
+textarea {
+  color: var(--cp-text-primary);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

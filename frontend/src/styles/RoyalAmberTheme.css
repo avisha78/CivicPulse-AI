@@ -2,8 +2,8 @@
   --royal-blue: #0B1F3A;
   --royal-blue-deep: #071426;
   --royal-blue-light: #0B1F3A;
-  --warm-amber: #F5A623;
-  --warm-amber-deep: #D88900;
+  --warm-amber: #f6f1e9;
+  --warm-amber-deep: #f6f1e9;
   --blue-wash: #F7F9FC;
   --blue-border: #E5E7EB;
 }
@@ -99,7 +99,7 @@ body,
 }
 
 .cp-auth-page::after {
-  background: rgba(245, 166, 35, 0.15) !important;
+  background: rgba(239, 213, 171, 0.15) !important;
 }
 
 .cp-auth-button,
@@ -138,7 +138,7 @@ body,
 .cp-login-option:hover {
   border-color: var(--warm-amber) !important;
   background: #fff9eb !important;
-  box-shadow: 0 12px 28px rgba(245, 166, 35, 0.18) !important;
+  box-shadow: 0 12px 28px rgba(239, 213, 171, 0.18) !important;
 }
 
 .cp-login-option-arrow,
@@ -219,7 +219,8 @@ body,
 
 .cp-ai-analysis-layout .cp-track-item.active {
   border-color: var(--warm-amber);
-  box-shadow: 0 8px 24px rgba(245, 166, 35, 0.18);
+  background: #fff9eb;
+  box-shadow: 0 8px 24px rgba(239, 213, 171, 0.18);
 }
 
 .cp-ai-analysis-layout .cp-track-detail-card {
@@ -244,7 +245,7 @@ body,
 
 .cp-ai-analysis-page {
   background:
-    radial-gradient(circle at 92% 4%, rgba(245, 166, 35, 0.14), transparent 25%),
+    radial-gradient(circle at 92% 4%, rgba(239, 213, 171, 0.14), transparent 25%),
     linear-gradient(135deg, #f7f9fd 0%, #edf3fc 100%) !important;
   border-radius: 18px;
   padding: 28px !important;
@@ -291,7 +292,7 @@ body,
   --cp-accent: #0B1F3A;
   --cp-accent-dark: #071426;
   --cp-accent-soft: #FFF4D6;
-  --cp-success: #D88900;
+  --cp-success: #f6f1e9;
   --cp-success-soft: #FFF4D6;
   --cp-warning: #c18419;
   --cp-warning-soft: #fff6df;
@@ -936,6 +937,358 @@ body.dark-theme .cp-home-page .cp-outline-btn {
 .cp-track-complaint-page .cp-track-detail-header h2 {
   margin: 8px 0;
   color: var(--royal-blue-deep);
+}
+
+/* =====================================================
+   CIVICPULSE SEMANTIC THEME OVERRIDES
+   Warning amber is reserved for status indicators.
+===================================================== */
+
+:root {
+  --cp-bg: #f8fafc;
+  --cp-surface: #ffffff;
+  --cp-surface-muted: #f1f5f9;
+  --cp-heading: #0f172a;
+  --cp-text: #64748b;
+  --cp-muted: #64748b;
+  --cp-border: #e2e8f0;
+  --cp-accent: #1e3a8a;
+  --cp-accent-dark: #2563eb;
+  --cp-accent-soft: #dbeafe;
+  --cp-secondary: #0d9488;
+}
+
+body.dark-theme {
+  --cp-bg: #0f172a;
+  --cp-surface: #1e293b;
+  --cp-surface-muted: #273449;
+  --cp-heading: #f8fafc;
+  --cp-text: #cbd5e1;
+  --cp-muted: #94a3b8;
+  --cp-border: #334155;
+  --cp-accent: #3b82f6;
+  --cp-accent-dark: #60a5fa;
+  --cp-accent-soft: #1e3a8a;
+}
+
+html,
+body,
+#root,
+.cp-page,
+.cp-home-page,
+.cp-auth-page,
+.register-page,
+.contact-page,
+.cp-report-page,
+.cp-citizen-dashboard,
+.cp-officer-dashboard,
+.admin-page {
+  background: var(--cp-bg) !important;
+  color: var(--cp-heading) !important;
+}
+
+.cp-navbar,
+.cp-auth-card,
+.register-card,
+.cp-feature-card,
+.cp-category-card,
+.cp-stakeholder-card,
+.contact-card,
+.news-card,
+.admin-card,
+.admin-stat-card,
+.cp-stat-card,
+.cp-officer-stat-card,
+.citizen-profile-card,
+.admin-table,
+.cp-complaints-table,
+.cp-table-wrapper {
+  background: var(--cp-surface) !important;
+  border-color: var(--cp-border) !important;
+  color: var(--cp-heading);
+}
+
+.cp-navbar {
+  border-top-color: var(--cp-accent) !important;
+  border-bottom-color: var(--cp-border) !important;
+}
+
+.cp-brand-text strong,
+.cp-nav-links button,
+.cp-nav-links a,
+.cp-page-title h1,
+.cp-page-title h2,
+.cp-section-heading h2,
+.admin-topbar h1,
+label,
+.cp-form-group label {
+  color: var(--cp-heading) !important;
+}
+
+.cp-brand-text strong,
+.cp-nav-links button:hover,
+.cp-nav-links a:hover {
+  color: var(--cp-accent) !important;
+}
+
+.cp-brand-text span,
+.cp-auth-subtitle,
+.cp-auth-footer,
+.cp-dashboard-text,
+.cp-form-group small,
+.admin-topbar p {
+  color: var(--cp-muted) !important;
+}
+
+.cp-primary-btn,
+.cp-primary-button,
+.cp-auth-button,
+.cp-banner-primary,
+.register-submit,
+.register-button {
+  background: var(--cp-accent) !important;
+  border-color: var(--cp-accent) !important;
+  color: #ffffff !important;
+}
+
+.cp-primary-btn:hover,
+.cp-primary-button:hover,
+.cp-auth-button:hover,
+.cp-banner-primary:hover,
+.register-submit:hover,
+.register-button:hover {
+  background: var(--cp-accent-dark) !important;
+  border-color: var(--cp-accent-dark) !important;
+}
+
+.cp-secondary-btn,
+.cp-outline-btn,
+.cp-login-btn,
+.cp-outline-button,
+.cp-officer-details-button {
+  background: transparent !important;
+  border-color: var(--cp-accent) !important;
+  color: var(--cp-accent) !important;
+}
+
+.cp-secondary-btn:hover,
+.cp-outline-btn:hover,
+.cp-login-btn:hover,
+.cp-outline-button:hover,
+.cp-officer-details-button:hover {
+  background: var(--cp-accent) !important;
+  color: #ffffff !important;
+}
+
+.cp-form-group input,
+.cp-form-group select,
+.cp-form-group textarea,
+.form-group input,
+.form-group select,
+.form-group textarea,
+.cp-input,
+.register-input,
+.admin-period,
+.status-select,
+.cp-theme-button,
+.cp-language-select {
+  background: var(--cp-surface) !important;
+  border: 1px solid var(--cp-border) !important;
+  color: var(--cp-heading) !important;
+}
+
+.cp-form-group input::placeholder,
+.cp-form-group textarea::placeholder,
+.cp-input::placeholder,
+.register-input::placeholder {
+  color: var(--cp-muted);
+}
+
+.cp-form-group input:focus,
+.cp-form-group select:focus,
+.cp-form-group textarea:focus,
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.cp-input:focus,
+.register-input:focus,
+.status-select:focus,
+.cp-theme-button:focus-visible,
+.cp-language-select:focus-visible {
+  border-color: var(--cp-accent) !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25) !important;
+  outline: none;
+}
+
+.admin-table,
+.cp-complaints-table {
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.cp-complaints-table th {
+  background: var(--cp-surface-muted) !important;
+  color: var(--cp-muted) !important;
+  border-color: var(--cp-border) !important;
+}
+
+.admin-table td,
+.cp-complaints-table td {
+  color: var(--cp-heading);
+  border-color: var(--cp-border) !important;
+}
+
+.admin-table tbody tr:nth-child(even),
+.cp-complaints-table tbody tr:nth-child(even) {
+  background: var(--cp-surface-muted);
+}
+
+.admin-table tbody tr:hover,
+.cp-complaints-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.1) !important;
+}
+
+.cp-status-badge.pending,
+.cp-officer-status.pending,
+.status-pending {
+  background: #fef3c7 !important;
+  color: #92400e !important;
+}
+
+.cp-status-badge.resolved,
+.cp-officer-status.resolved,
+.status-resolved,
+.status-active {
+  background: #dcfce7 !important;
+  color: #166534 !important;
+}
+
+.cp-status-badge.in-progress,
+.cp-officer-status.in-progress,
+.status-in-progress,
+.status-assigned {
+  background: #e0e7ff !important;
+  color: #3730a3 !important;
+}
+
+.status-critical,
+.status-high,
+.cp-status-badge.rejected,
+.cp-officer-status.rejected {
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+}
+
+body.dark-theme .cp-status-badge.pending,
+body.dark-theme .cp-officer-status.pending,
+body.dark-theme .status-pending {
+  background: #78350f !important;
+  color: #fef3c7 !important;
+}
+
+body.dark-theme .cp-status-badge.resolved,
+body.dark-theme .cp-officer-status.resolved,
+body.dark-theme .status-resolved,
+body.dark-theme .status-active {
+  background: #14532d !important;
+  color: #dcfce7 !important;
+}
+
+body.dark-theme .cp-status-badge.in-progress,
+body.dark-theme .cp-officer-status.in-progress,
+body.dark-theme .status-in-progress,
+body.dark-theme .status-assigned {
+  background: #312e81 !important;
+  color: #e0e7ff !important;
+}
+
+body.dark-theme .status-critical,
+body.dark-theme .status-high,
+body.dark-theme .cp-status-badge.rejected,
+body.dark-theme .cp-officer-status.rejected {
+  background: #7f1d1d !important;
+  color: #fee2e2 !important;
+}
+
+.top-utility-bar {
+  background: var(--cp-surface) !important;
+  border-bottom-color: var(--cp-border) !important;
+}
+
+.top-utility-theme,
+.top-utility-select,
+.cp-theme-button,
+.cp-language-select {
+  background: var(--cp-surface-muted) !important;
+  border-color: var(--cp-border) !important;
+  color: var(--cp-heading) !important;
+}
+
+.cp-theme-button:hover,
+.top-utility-theme:hover {
+  background: var(--cp-accent-soft) !important;
+  border-color: var(--cp-accent) !important;
+}
+
+.cp-register-btn {
+  background: var(--cp-secondary) !important;
+  color: #ffffff !important;
+}
+
+.cp-register-btn:hover {
+  background: #0f766e !important;
+}
+
+.footer {
+  background: var(--cp-surface) !important;
+  border-top-color: var(--cp-border) !important;
+}
+
+.footer h5 {
+  color: var(--cp-accent) !important;
+}
+
+.footer p,
+.footer small {
+  color: var(--cp-muted) !important;
+}
+
+.admin-gis-card {
+  background: var(--cp-surface) !important;
+  border-color: var(--cp-border) !important;
+  box-shadow: var(--cp-shadow);
+}
+
+.admin-gis-header h2,
+.admin-gis-stat strong,
+.admin-gis-filter label,
+.admin-gis-popup {
+  color: var(--cp-heading) !important;
+}
+
+.admin-gis-header p,
+.admin-gis-stat span,
+.admin-gis-legend span,
+.admin-gis-empty p {
+  color: var(--cp-muted) !important;
+}
+
+.admin-gis-stat,
+.admin-gis-filter select {
+  background: var(--cp-surface-muted) !important;
+  border-color: var(--cp-border) !important;
+  color: var(--cp-heading) !important;
+}
+
+.admin-gis-map-wrapper {
+  background: var(--cp-surface-muted);
+  border-color: var(--cp-border);
+}
+
+.admin-gis-empty {
+  background: var(--cp-surface) !important;
+  border-color: var(--cp-border) !important;
+  color: var(--cp-heading) !important;
 }
 
 .cp-track-complaint-page .cp-track-details-grid {
